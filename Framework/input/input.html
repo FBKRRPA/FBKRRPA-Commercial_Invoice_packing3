@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>eStec RPA System</title>
+  </head>
+  <style>
+    .selectbox {
+        position: relative;
+        width: 200px;/* 너비설정 */
+        
+        border: 1px solid #999; /* 테두리 설정 */
+        
+        z-index: 1;
+        
+        /* focus 효과*/
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      }
+      
+      /* focus 효과 */
+      .selectbox.focus {
+        border-color: #66afe9;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      }
+      
+      /* 가상 선택자를 활용 화살표 대체 */
+      .selectbox:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        width: 0;
+        height: 0;
+        margin-top: -1px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #313131;
+      }
+      
+      .selectbox label {
+        position: absolute;
+        top: 1px; /* 위치정렬 */
+        
+        left: 5px; /* 위치정렬 */
+        
+        padding: .5em .5em; /* select의 여백 크기 만큼 */
+        
+        color: #333;
+        z-index: -1; /* IE8에서 label이 위치한 곳이 클릭되지 않는 것 해결 */
+      }
+      
+      .selectbox select {
+        width: 100%;
+        height: auto;  /* 높이 초기화 */  
+        line-height: normal; /* line-height 초기화 */  
+        font-family: inherit; /* 폰트 상속 */  
+        padding: .8em .5em;  /* 여백과 높이 결정 */  
+        border: 0;
+        opacity: 0;  /* 숨기기 */ 
+        filter: alpha(opacity=0);  /* IE8 숨기기 */
+        
+        -webkit-appearance: none;  /* 네이티브 외형 감추기 */ 
+        -moz-appearance: none;
+        appearance: none;
+      }
+  </style>
+  <body>
+    <div style="display: flex; margin:20px">
+      <form action="#"></form>
+      <div class="selectbox" style="flex:1">
+        <label for="select" id="label-select">출력 인보이스 종류</label>
+        <select id="select">
+            <option value="1">매입 인보이스</option>
+            <option value="2">판매 인보이스</option>
+        </select>
+    </div>
+    <div style="flex:1;">
+        <button onclick="SubmitValues()" style="margin-left:20px; height:40px">Submit</button>
+    </div>
+</div>
+
+<script>
+    var selectTarget = $('#select');
+
+    function updateLabel() {
+        var selectedOptionText = $('#select option:selected').text();
+        $('#label-select').text(selectedOptionText);
+    }
+
+    // 페이지 로드 시 레이블 업데이트
+    $(document).ready(function() {
+        updateLabel();
+
+        selectTarget.on({
+            'focus': function() {
+                $(this).parent().addClass('focus');
+            },
+            'blur': function() {
+                $(this).parent().removeClass('focus');
+            }
+        });
+
+        selectTarget.change(function() {
+            updateLabel();
+            $(this).parent().removeClass('focus');
+        });
+    });
+
+    function SubmitValues(){
+        const btn = document.querySelector('#btn');
+        const sb = document.querySelector('#select')
+        window.external.setResult(sb.selectedIndex);
+        return true;
+    }
+    // Here is the important bit. For a to be valid in terms of the activity the following line needs to be included and called at some point in the execution of the form.
+    //Once the command has been called a string can be passed back to UiPath and the form will close
+</script>
+    
+</body>
+</html>

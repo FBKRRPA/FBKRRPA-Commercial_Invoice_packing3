@@ -1,0 +1,428 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SendCancelMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_mailText" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>SendCancelMail_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SendCancelMail" sap:VirtualizedContainerService.HintSize="1285,4157" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Username" />
+      <Variable x:TypeArguments="x:String" Name="Password">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">obh62100A@</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="groupware_Url" />
+      <Variable x:TypeArguments="ss:SecureString" Name="sec_password" />
+      <Variable x:TypeArguments="x:String" Name="mailTitle">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">AP전표 캔슬요청</Literal>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="캔슬요청 메일 발송" sap:VirtualizedContainerService.HintSize="552,4134" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,124" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;캔슬요청 메일 발송 START&quot;]" />
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="518,195" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[groupware_Url]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">https://ngw.estec.co.kr/user/login/login.do</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[Username]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">ykwang</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="ss:SecureString">[sec_password]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="ss:SecureString">[New System.Net.NetworkCredential("",Password).securepassword]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: ESTec Groupware" sap:VirtualizedContainerService.HintSize="518,3617" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="484,3368" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'LOGIN'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Text="[Username]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/user/login/login.do" DesignTimeRectangle="870, 444, 215, 54" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT uid'" FullSelectorArgument="&lt;webctrl id='uid' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='uid' tag='INPUT' type='text' class='input_text focus' aaname='' /&gt;" Guid="9a6298a8-e3d7-4137-91f7-f75b87826198" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAA6CAYAAAA5myxnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADTSURBVHhe7duxCYBAEEXB678AKzCyyRON5UDQF82HSTZ/4Y5pZsnEZhZtbPsxgf+JDSJig4jYICI2iIgNImKDiNggIjaIiA0iYoOI2CAiNoiIDSJig8gytmtPd+A9sUFEbBARG0TEBhGxQURsEBEbRMQGEbFBRGwQERtExAYRsUFEbBARG0TEBhGxQURsEBEbRMQGEbFBRGwQERtElrEB3xEbRMQGEbFBRGwQERtExAYRsUFEbBARG0TEBhGxQURsEBEbRMQGEbFBZNwfomb28+Y8AWviLypSVfmMAAAAAElFTkSuQmCC" InformativeScreenshot="1e5f044860f6338609a6ba6ac7700fb8.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="815, 594, 306, 65" ElementType="Text" FriendlyName="'LOGIN'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='btn_login' aaname=' &amp;#x9;                        &amp;#x9;&amp;#x9; &amp;#x9;                        &amp;#x9;' check:innerText='LOGIN' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Double" ContinueOnError="True" DisplayName="Type Into 'LOGIN'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Text="%[k(del)]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/user/login/login.do" DesignTimeRectangle="870, 514, 215, 54" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT upw'" FullSelectorArgument="&lt;webctrl id='upw' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='upw' tag='INPUT' type='password' class='input_text' aaname='' /&gt;" Guid="ba82cb00-593b-461d-92d0-04ddcc5e60dd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAA6CAYAAAA5myxnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGnSURBVHhe7dcxThtBGIbhvQyFr+OSyyDRps8JQEK00LugQRRUFDRuUUSBOABiwm9iZ8luYa/JB8XzS0+xoxnLxb4abdeMMZERmzGh6X6enLe+i8V1u1s+toenl/br+RXYQXVT/VRH/7b1Ibar2/vRHwB2Vz31+9rEViWOHQCm699wm9jq6hvbDExXXQ1i840Gn6+6GsQ2thHYn9ggRGwQIjYIERuEiA1CxAYhYoMQsUGI2CBEbBAiNggRG4SIDULEBiFigxCxQYjYIERsECI2CBEbhIgNQsQGIWKDkC1jW7ajWde6rmsHx8s/a5dt/vZca/Oz9303x7PVczf70W6+5Bx8X9vFdnb4/lKvHLbTt7XNi7552f/GUFZBpM+t/y98Q9vF5maDvW0ZG7AvsUGI2CBEbBAiNggRG4SIDULEBiFigxCxQYjYIERsECI2CBEbhIgNQsQGIWKDkEFsD08voxuB6aqrQWx3y8fRzcB01dUgtovF9ehmYLrqahBbubq9Hz0A7K566vf1IbZSJdbV5xsOdlfdVD/9G21tEBvwf3TNGBOY1n4DE64Z1EYEeqAAAAAASUVORK5CYII=" InformativeScreenshot="4eca70cd73ff8e3485e4fee950f9d687.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="815, 594, 306, 65" ElementType="Text" FriendlyName="'LOGIN'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='btn_login' aaname=' &amp;#x9;                        &amp;#x9;&amp;#x9; &amp;#x9;                        &amp;#x9;' check:innerText='LOGIN' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'LOGIN'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,250" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" SecureText="[sec_password]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/user/login/login.do" DesignTimeRectangle="870, 514, 215, 54" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT upw'" FullSelectorArgument="&lt;webctrl id='upw' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='upw' tag='INPUT' type='password' class='input_text' aaname='' /&gt;" Guid="ba82cb00-593b-461d-92d0-04ddcc5e60dd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAA6CAYAAAA5myxnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGnSURBVHhe7dcxThtBGIbhvQyFr+OSyyDRps8JQEK00LugQRRUFDRuUUSBOABiwm9iZ8luYa/JB8XzS0+xoxnLxb4abdeMMZERmzGh6X6enLe+i8V1u1s+toenl/br+RXYQXVT/VRH/7b1Ibar2/vRHwB2Vz31+9rEViWOHQCm699wm9jq6hvbDExXXQ1i840Gn6+6GsQ2thHYn9ggRGwQIjYIERuEiA1CxAYhYoMQsUGI2CBEbBAiNggRG4SIDULEBiFigxCxQYjYIERsECI2CBEbhIgNQsQGIWKDkC1jW7ajWde6rmsHx8s/a5dt/vZca/Oz9303x7PVczf70W6+5Bx8X9vFdnb4/lKvHLbTt7XNi7552f/GUFZBpM+t/y98Q9vF5maDvW0ZG7AvsUGI2CBEbBAiNggRG4SIDULEBiFigxCxQYjYIERsECI2CBEbhIgNQsQGIWKDkEFsD08voxuB6aqrQWx3y8fRzcB01dUgtovF9ehmYLrqahBbubq9Hz0A7K566vf1IbZSJdbV5xsOdlfdVD/9G21tEBvwf3TNGBOY1n4DE64Z1EYEeqAAAAAASUVORK5CYII=" InformativeScreenshot="4eca70cd73ff8e3485e4fee950f9d687.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="815, 594, 306, 65" ElementType="Text" FriendlyName="'LOGIN'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='btn_login' aaname=' &amp;#x9;                        &amp;#x9;&amp;#x9; &amp;#x9;                        &amp;#x9;' check:innerText='LOGIN' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NClick ClickType="Single" DisplayName="Click 'LOGIN'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/user/login/login.do" DesignTimeRectangle="933, 610, 71, 32" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'LOGIN'" FullSelectorArgument="&lt;webctrl id='LoginBtnSpan' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='LoginBtnSpan' tag='SPAN' type='' class='' aaname='LOGIN' check:innerText='LOGIN' /&gt;" Guid="4b2e27e5-cdb3-48d9-a3a5-acefb086a573" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAkCAYAAADB7MdlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOiSURBVGhD7Zc9SyNBGMf9MH4Ev4CFZT7AFRZCmitELFIcIUWusDjEwuIQQQuttDhBxGKLIAi5IoQQguzhXUwul5CEkE3QkLcl/O+Z3VmTfXVHs90M/CA78+zkmd/Ozs6sZFdikIRDyhJAyhJAyhJAyhJAyhJAyhJAyhJAyhJAyhJAyhLALmu3CB1UVMUW9CZrh6j/UDHuTDAzOuBlNMC0VER7e8f7Pi/8+tLpuqdhmFFQXY/b7wnIu60ad1MZoL9rb3Nzgn6PxdbQ9mj/oKw4Hr+XoS8OyqfouRuonn1YhO/LlV8oWVSaOfxxtNuJUJZ6WsOMxVOZNcvo7h1BXbPad6BuX6Cb0+Yx1K+3sDiqisajSKxaRMfWVwzF2D6e9hRo9y3oBVFZNMObE/YD48u0K2ZOVLKsWEwwvT1H0SuGk/+cxXhkBHsm+ypd19BPCbyyFiFk9b8pGLIc9BY6MXvMnEhkJdH5zQJptvy8QN4zxk7+oGwKGZXRWF1o26BBGH9KA0o41qKwhJFF65V61mIXmJUUPDjiTKKQtXGHMYvTqdMNj3ZP0uj+YzdR6gfz+sdr8/ULK92TkLJYDuZDnmB4nHTFRiOLZolRKE5kgJYYPXPC65LoVlhNmC9VAKFlETFaEliVc4YbRCDrddDKkWe7L8c14755/xd4fmEV3smFRkQWoV7y19E1myOQVc0MWBSGp97tvrj6p/WKXfeKqDpjOeZgncUxGEFZ2ZVDaE1eb1snI5T17plVuOJ1XFbAzIpGFrGVw5Q1dRYfVBRrFn3qjfI66HBYr+/0ep/XWclp0Dbd8W585L5HFlFVzIc+vT7kdVHI2uRPRS+j6Vok/bC+hhM8p+b1jQKro4RvrYSDWK4sQ06HtdPD2uLXS5e1sM9iXzahfZZzfUqpfP9FCfpuFi2WLYvySvB7K1k6XUQia+FPaKaML48ChRVTNBONHbzX/iZNAzKPIuioaAQKW74s46jF1+Dx2VU0spznuVlFtZ/nVpP49eUGWslMhBXfWRi7wrPxOrAgkn9/h/p2euEIRefMzXO0My1+zlymLGKVb2FGLYyNr6SIrKBiSyiOJ9qzmAMIKiTgjfNjdu0cWoXPsLcKvcp/F+/9qCwi/5UvB0aJRJZJfv2EnnoN0559sLOXAc2SLOqfwp754nhIKOiXNOj84G0Vs68cmomke3YuQRb770bByj+MLEkgUpYAUpYAUpYAUpYAUpYAUpYAUlZoYvgPgtngvtn3yxQAAAAASUVORK5CYII=" InformativeScreenshot="58bd114e7c53bd4e64256c8a3ac8ed56.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="816, 679, 92, 24" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl aaname='ID Save' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ID Save' tag='LABEL' type='' class='' check:innerText='ID Save' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGAAAAAcCAYAAACeeLqCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK0SURBVGhD7ZldbuIwEID3llWvgXIS1Gu0feqq0AOE8By6zRbeqAQI8SMQiF9vxnaM7XESQryJtutPmgcSZxzNZ0+i8IM4asUJqBkkYDKZkCAISLv9Rl5eft4UcG0QdGkuRzaKgCiKjAUtE1H0m2d3mBACxuOxKFq/3yf7/Z6fKQ5c+/nZF/ncTkhHCOh0OrRYg8GAHykPiISc0NIcZoSA19cWLdbxeORHygM7AXK2Wm1+xKEjBEChIGxTNu/wsUHuvScy5L/J1xPx7u7IPYom6fIh1zEkz56a46FYAiv8owIa5PmL/+bQcXERvUcxMoOAPKCxsZCmNE9FfBsBFL478lYyylkjSMD5fLYalQqI6TbjdtLMfug7AQUoKiA2kP884Dslr11RmfE4FtKcafdA55aPs1YnchikIwGn08lqVC6Anr/igUyLpRVWAuaVWxm9D5GXPcB1gcru45LlHPS8JgEJOBwOVqNyAdfsAAmxyg2rU0GfF+ZRroHVfjkPedEOM9w7EgDv7jajFgF5xUTwV1L9OrFLkpDnZe1FrHBlXvyKa85hELDb7axG1QKMK+8q5IKahKgrHLi0HDb+0m7MLcoEErDdbq1GpQIKth8VSQCdQ8tjmjcZZxh/kZMNErDZbKxGVQJYL0/fGTKQU344AnSepIh0DnlFMzk4P1/pXiOl3+u7IM6jSUEC1uu11fg7AqAYahRtO0yYFEq7iVH6P4jBLQhg4lLEo3vVdlUMErBaraxGWQHfHSRguVxaDScgGyEg+Rw9m83IYrGwEtPplOZ0n6PTEQJ8n/0h0+v1yHw+txJhGNKcnU7+28D/ihAwGo1osSDCsEdXL+yGWwKuhRxJPvi702FGCADe33+JotmKj4+IZ3eYUAQAsBN83xfPhFsCroWWBrkc2SABjmpxAmqFkD+y7wlWQ7y7mQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NCheckState DisplayName="Check App State '비밀번호 저장'" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Timeout="10" Version="V3">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="450,244" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ClickType="Single" DisplayName="Click '나중에'" sap:VirtualizedContainerService.HintSize="416,182" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="191, 170, 118, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'나중에'" FullSelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;&lt;ctrl name='나중에' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;&lt;ctrl name='나중에' role='push button' automationid='' check:text='나중에' /&gt;" Guid="93727e5c-0ea6-48fd-9880-ff9bd75737e0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHoAAAAkCAYAAABG3S5jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF6SURBVHhe7dvBjYMwAERRSqEXOqERGqEQCqEPOMAVrwZpLC8xZMmBJcNY+oKAIRIv+JYieDxiGPohI0IvyxLmeQ7jOIZhGJxIGNhG6GmaXia57w8D2wi9neA0oq2hxaOtocWjraHFo62hxaOtocWjraHFo62hxaPt10E3TbOWO9e2bajr+texvu9DURSHYU56TVVV8VzXdesxfCfuf/T9d4y28tDbgIhy51B6DyCXZbnuG/riPoXGOb6hCPu5++BHwLcYARpvPOYa+sKOHnQOGp+BmvsB4D7bc4BOl/J0GTf0hb2DJsqnGDlov9H/0NGD3r7RXKL/Epfr3NKNraEv7gx0rndQ6T0ADnjs4xpDXxgecu6NBMgRNI5vr9mbi3txDo8Z+kbtQe/hnEHDPEPfJEO/RttHQKMzS3cuQ7tbR1tDi0dbQ4tHW0OLR1tDi0dbQ4tHW0OLR1tDi0dbQ4tH2wjtP9lphoFthPbfZjXDwDZCe2gPQz9ihPADAbpvtCR+QD0AAAAASUVORK5CYII=" InformativeScreenshot="c34edf69d6f1287d3ce85f888b0b1903.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='비밀번호 저장' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target DesignTimeRectangle="45, 170, 138, 32" ElementType="Button" FriendlyName="'확인'" FullSelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;&lt;ctrl name='확인' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;&lt;ctrl name='확인' role='push button' automationid='' check:text='확인' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAI4AAAAkCAYAAABfegKAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGPSURBVHhe7ZxBasJAGEa9QXucQg/ltrv2EqVLj9BFDuAFXEpd2aXgRkFEXAi//DZfTKZ/EsZl8h48JMlkEXjMxEVmYgAPQDjwEI1witXBXr9+7fnjxyZvS8RbC96Et1GnCud7eQhvRJTeiKjCeflch4MRpTciqnCe3lmesFtvRFThRAMRUwXhYJaCcDBLQTiYpSAczFKMOJydrexss/AatilGFs7G5qfygVNOR5t6TLff5L7iaPtymLNa3K/NthebF7WxA1ewVDWMwvGZqR5H85hwgkFDdbYtH1psd+W1IJzF2fbrzf04OUc4waBBGoQwXV/K5Ydw+hTMOE59xilP3WNhqaorRvyO4wGk/6qCGccteDmWYlzhJAE08QBawumQcIJBKKPZ6U/CCQYNVX8ZbiWccdrDGZuCGadh21JFOFIQTsOucNr593d9wArCwSwF4WCWgnAwS0E4mKUgHMxSEA5mKQgHsxRVOHyQh32GH+TxCTD2GX4CzKYD2Ge46YDDNieY2rvNCUAOhAMPYHYFvl4RT8EvuQoAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="타겟이 나타나지 않음" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="29, 17, 320, 201" DesignTimeScaleFactor="1" FriendlyName="'비밀번호 저장'" FullSelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;" FuzzySelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' automationid='' check:fulltext='비밀번호 저장&amp;#xD;&amp;#xA;닫기&amp;#xD;&amp;#xA;사용자 이름: ykwang&amp;#xD;&amp;#xA;obh62100A@&amp;#xD;&amp;#xA;편집&amp;#xD;&amp;#xA;디바이스 암호 인증을 사용하여 저장된 암호를 비공개로 유지&amp;#xD;&amp;#xA;확인&amp;#xD;&amp;#xA;나중에&amp;#xD;&amp;#xA;기타 옵션' /&gt;" Guid="df91ed2f-bd62-407c-9915-85b066477d8d" ImageBase64="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" InformativeScreenshot="17ff4e2d91928192cad01360d6286a60.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='비밀번호 저장' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="45, 31, 264, 19" FriendlyName="'비밀번호 저장'" FullSelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;&lt;ctrl name='비밀번호 저장' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='비밀번호 저장' role='alert' /&gt;&lt;ctrl name='비밀번호 저장' role='grouping' automationid='' check:text='비밀번호 저장' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQwAAAAXCAYAAAD+6nF/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHpSURBVHhe7ZgBkoMgDAD9jU/yWT7H5/gUzraJgoBEj7YntzuTmRuFEpzLGukcAIARhAEAZhAGAJhBGABgBmEAgBmEAQBmTgpjdmPfua4b3CRXrEzDtXnz2C/zejfOcuHDXMp7GpY5nRvObhbgjxMKI/GPHhZMRhgyL45tXKrwXjLw15Pf78flL7liEkY8r8zkhijfLTSnOO+jeZInwoBGqSqM3qvqfaFVFcY8uv5ZoKUwdibye37+Sirvldw8hAGNck9h1OaiMDT/bm8GeR4aiANaISmMON4rjHLkhJH7PEgXeJZE/kpWGMGz2uUn9xAFtMZ9zzCKXYG9K3mN99aN9hPmvY5fYpj0mXjrIQxolDrCuMivhKFFnahKLWhTwQbnIfE64f4XdF0vxwe6l6fAEAY0SlVhaNHkI5yXHW88w/Df9FHYbCH7eexZPm92IoiEYQFhQKPUOcMwcKnwFo6EsRF3JmU2WayfNdpteJVeyjstrfP7BLgDoTCK1O0wVg7eyG8ThqwZn4FIpyHJ5IWhB67xPZUIHQa0xhuEUSruBGda+ODMwRIX8vHICuPg0PXwHsCNuZ8wPgwdBsDGhz9JMkWUPTvZ4ltv67wwXqgcwsiPB7gzJ4UBAP8ZhAEAZhAGAJhBGABgxLkf+dX2kHJ20msAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheckState>
+              <uix:NCheck Action="Check" ContinueOnError="True" DisplayName="Check/Uncheck '하루 이 창 열지않기'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NCheck_2" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezNewPortal/newPortalMain.do" DesignTimeRectangle="703, 863, 13, 13" DesignTimeScaleFactor="1" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;webctrl id='surv_inp_noticeCheck' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='surv_inp_noticeCheck' tag='INPUT' type='checkbox' class='inp_noticeCheck' aaname='' /&gt;" Guid="9fd90e9f-ad1c-4ea6-a469-81846830e675" InformativeScreenshot="bd3c00bfc516967d75119cba0a6da54e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="716, 859, 130, 18" ElementType="Text" FriendlyName="'하루 이 창 열지않기'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='name_type0' aaname='하루 이 창 열지않기' check:innerText='하루 이 창 열지않기' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIYAAAAWCAYAAAAFH+TSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKZSURBVGhD7Vm7TkMxDOV3+D6kipmVnamfwcraiZmNGYmFka0hTnKLn7lx2lIQtnQkrtP4dc51EVxd3e5TICCgOgMB1RkIqM5AQHUGAqqT4eY1pY9X6X/6TOnpUfp/FI+5tlzHjXZmAOp+eeb+7Esn7Oc5B3tP+lkHMGv/vfnazXx39w/p+u5NHiC4hQFk5Xw98zSxzYUfjIvggsKAONjIXUUYhQTDlnpMoiAeMsqHUTu7czA0LzPfbrdLIA56UBOZ1gLPbgzPvSIKVDh/HhUGJxFbJcUnDIhHyNFI0AbeAH1IcRpEtdhb5KP5HbUzwZrCgISbzUYeDMAk+FQbo8XBAxFDuMTGMHISshkBHB5hqPWS2dTaF+v1APGxoCeFQRPyNd4VhjI4N4zhkqE6c5VBgIk7tFcqRoYTCIO+8d84RhjropafmxBGDYILKkHQQC4pjMNQHbmgXjDoCf9cz+XQehDEQq3cLGE0UqU4DaJa7GO/SrTYfmEYpGAxLMMFI4peGu+Y9rYIdIRxyDckjDo4QUSrs9biEwYA9w9G7hq1A6qw8+fzfTK3DJMoJjw6v4HaW698E55NGJ5BuqE2w4YwJIxfBNyT0p9JlAGyPS20PBpXfmE0ArCiSxBEghBGK8Bja8KCxnHh/HlGGPxNLzYjLvYWC+MDVwjiM7WIItulk5fPs8RT/ORcyXeeXz4ZIPnQV4eBIobFtGEPk1r70WpZBshX7TTExpUv2gJMjkUUEcYgytxWZjMpjD5+ShhdeIQBZHU+6x6+d2MMYFgYynaeEXUIo6C+tSfbGGIrHI9RYcA2wM8mwSsw7+l/+RzD3xNGBdQtzBmjYG1jZBuZD0ZPGNi2594YI/8rCfxDqM5AQHUGAqoz8M+xT1/Xx92D/qY+9QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheck.Target>
+              </uix:NCheck>
+              <uix:NClick ClickType="Single" DisplayName="Click '메일'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezNewPortal/newPortalTopMenu.do" DesignTimeRectangle="295, 116, 74, 52" DesignTimeScaleFactor="1" ElementType="ListItem" FriendlyName="'메일'" FullSelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='menu_1' tag='LI' /&gt;" FuzzySelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='menu_1' tag='LI' type='' class='' aaname='메일' check:innerText='메일' /&gt;" Guid="13febb46-c0a1-47cd-8dbf-a11d79ac3707" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE4AAAA4CAYAAABT0c7BAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVHhe7di/asJQFMfxO2b0FToGXAod7NiOhQ51a8CpU4dOHUtfIDj2Feymg5DR1VfolsWhg4NDCRk6nB7socRLleRHglF/XziQ6z/IhxsjuizLhFN93HK5FE71ccKgCAdGODDCgREOjHBghAMjHBjhwAgHRjgwwoERDoxwYIQDIxwY4cAIB7Z/uGkkzkWS+Md+i7E8X51J4Jy+RqcTSj+ey+rbnreSgT7XHUpq66ZqFm4NYSfqTRjbqZWB+xjKuevIdTyTz6/fh/LFTF56+lm9tw2kI4LzIVIZdqvA5TK6cxI8zmxdaDWWKHDSf8/tAcIVSuRBd2g0taXX+F5Rn+a2Ilwhg5vYciPdjbeE2/J6u1QHiR55rUZyo6gndalu3ix2wWnrm4OTy1fv5nCh7+XNwTv2O72fIzXBlYxwLe+g4Na76e97ccccx47758R0mtpxaRweAVyZCAdWAe50LtUyVYXTH8JtiHBg+4crVtelqrPtT4G6ahfcAUU4MMKBEQ6McGCEAyMcGOHACAdGODDCgREOjHBghAMjHBjhwAgHRjgwwkGJ/ABSOA3oSWdbrgAAAABJRU5ErkJggg==" InformativeScreenshot="3f95ae398219f2e8e3832fdddfb39644.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="369, 116, 108, 52" ElementType="ListItem" FriendlyName="'전자결재'" FullSelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='menu_3' tag='LI' /&gt;" FuzzySelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='menu_3' tag='LI' type='' class='' aaname='전자결재' check:innerText='전자결재' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAA4CAYAAAAl63xKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN0SURBVHhe7Zi/a9tAFMc1ZPCoUWMMXQQZYsgS6FJDhho6xNBFkKF4NPkDgsnWyWgqmUKmgjIUmiGgtUtAHQpeCsoQ8JLBgwcPIWjQ8O2TdI4tW78S16XPeR+4wSfdnfQ+994p0R4fHyGNb9PG4zGk8W0aBNaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOb8RwKHsHc0mP2h+v18hn0T2o5NM63GS+dJjbu2oGkW3PjK+lirwPiFNK2gmbDv1M05At2jrHHzbTZHfuCTubPHU/uUDnPWPMXvkjzDxglMU5ZhVTKw+J58gTmELiwS0DwfqY6E0nly5LwKgYu7fca/FxhctinITVyMEpGprBKBCzw4aEWBMXoYqK6s8lgscICe8ZcEhjTXtgb92FMdMyQDMxic1OnlmmjWarCuA9U7T4UMDL/HmVLLCHpEdYET2jw6NJ0CPFFdc5TNE1y2SE4LzoPqUGyuwFsbDa2O3i9gdN7MCVwFgT+6qEWZmhPcagIn8E4aFNwG7FvVdWfDnKsCcSuYxzuu0T1G/D7zbKbAewdtXUOj76sOtfv3bPih6oopExjAOaTAbtdRjzbDb9U9RxzAIgljD/YBrb21j97PjNRTFG+EqIwbMDJK+dL6vAUGGH7rwNyic+bIJW1zhD7sPXrBN124Y9VXJlBlSftyBOcDlVGac7EQ5wb+wYd72oJB4433NrynNbMpFBhVgRo9d/QBtN3DdFtGpMbxz8Ao0wzsn3ppeVMCH2cHJp2H06tFAke4eEfCKWvjq7efSaaO7k188Ym8wPv9fei7Fs5u8rOuGskzxn92hB66evo83zCBzyVfoN9fOLOIuG/hLC3MHEX5PwZUy9wItCZl3UCV/kn0MaN34anfGyyw7HyLyLongP+lCZ2ybZapU6ZnaQ+eulRFYBWy5plcWfQc6U0UPUNUzvVDByOSKAIX74nOyrd1dK5ySl9I5+GhidbXZMz6BNI6HxvoLG0iYuKis9uGc//qBa5OFYGrlNAyROCKVBZIX7DrQASuiAhcG4nAzFK11F7+0pUFZq673KxrNeglbJZAYV2IQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQOaIQNYAfwDfMUuXR3jJPQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" DisplayName="Click '메일쓰기'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezEmail/mailLeft.do?funCode=1&amp;subCode=1" DesignTimeRectangle="22, 234, 100, 30" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'메일쓰기'" FullSelectorArgument="&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='left' tag='FRAME' /&gt;&lt;webctrl class='btn_write01' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='left' tag='FRAME' /&gt;&lt;webctrl class='btn_write01' tag='P' type='' aaname='메일쓰기' check:innerText='메일쓰기' /&gt;" Guid="ce5b00d7-d2f2-4fd9-ac5c-fad7da3a628f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAiCAYAAACz35yrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIaSURBVGhD7ZfPSsNAEIcLvouiz+G1ryAVRA8e+xSCCt5667kP0FxzE7RCe+utUkGwIpRS9VBrxsyaNDvZTZPmT5nCDHy0yW52l/3yS9Pafa0OAl9EEHNWgjp7xwIjRBBzRBBzRBBzRBBzRBBzRBBzti7o6fIOvl7ewTlsWNsFylYFOUen4C1/Aev79aOYpPYYFm4LOs0+LKZ9GMTaB+5czRPWrE3b1LVa/yrAefR587A1QaGMx7NrAM9Tm/b5/Gb0ozgwUz31GsMI29YIUnKGjjZOCybTSFKyIOw3h0lTP+evwXIDhGMapfXdGUG9i1uVnN75jTpGSd7PEh4aV0ZfCgoKhMSP1wgaDWliEF3KRoJwfLKGNcTWshOCUE6YGPxEOXi+u39i9DXJJwg3hiYIr8uSoP9+pM2fByCeqgTCNQXH7AUROUFhkroHWeQgNkFRJQlClCSt9I1KEqSS59LEjIa+HNeXRITbMNPHWpBNjp6gbNgEpScoF5iUcJzwO34qMfQ3zIZNOltB5chBigiiaYsX2Uwcg8xjOxdfS4RKqyVhLAWVJwcpIigZ292ej+BNLuHxx05QuXIQWwqyCtogQXlQCUt/7LESVK6cFLIIsp43wZeDzJX6shDBT5BeVcpBShRUFXwFVS0HKfiI0//xVwU7QUL5iCDmiCDmiCDmiCDmiCDmiCDmiCDmiCDmiCDmGIIEnogg1tThD3DT46nl4lugAAAAAElFTkSuQmCC" InformativeScreenshot="d6263fb92c2a6d2358b4f08452ace2fa.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="124, 234, 98, 30" ElementType="Text" FriendlyName="'내게쓰기'" FullSelectorArgument="&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='left' tag='FRAME' /&gt;&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainFrame' tag='IFRAME' /&gt;&lt;webctrl id='left' tag='FRAME' /&gt;&lt;webctrl tag='P' type='' class='btn_write02' aaname='내게쓰기' check:innerText='내게쓰기' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGYAAAAiCAYAAACtFqwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIOSURBVGhD7ZXNSsNAEIALvouiz+G1ryAVRA8e+xSCCt5669kHaK65CVqhveVWqSBYEUqpeqg14842STf7k6ZJWkeYgY8mu9PddL7OpnZXqwNDDxZDlETM7c4hQwAWQxQWQxQWQxQWQxQWQxQWQ5Stink8v4HP5zfw9hvWeWbJ1sR4B8cQzn8A4+vlvYScFozGUxg1xXV7CBB4lhyTvj+Fmd9a6ztlwP0mbftcHrYiJpbwcHIJEIZSzsfTq5GnMwjA8uOyxOCcXH4Z0fxqMcq6yZgHk3EP+qk8xLIPhpJLXkz37Fp2Svf0St6jnPB7DveNCyNXZ30xGmJeyhDXhcQ0ezCDIQxSeQ4w97+IQSlxh+AnSsHxzu6RkWujrBi1OKvFiO4QjxmLlGAu6F3kQPkTIGTFpKREgZ3T2csnBSknBgstZChHTpYYuZef7pBBIPbxs+UvMLuNpBibFLVj8uIWE62J4Sha0iH6vU0Mjo2jYyi+TvIW+2UVWd8rHiMlpiopSOGOUQsd4RRje48YY9h99ncNrmt7BlJiqpSCFBEjC2UpolNMYaLOdaxFRkzVUhAUo8fM95xipBStU9S5ysTIjlp9vJEQU7UUNzmOMgsuMTb5zlhDKB0xamxMClKtmE1BT8xGpSAshvlDWAxRWAxRWAxRWAxRWAxRWAxRWAxRWAxRWAxRDDEMLVgMSerwC08fSGAB2P8eAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: 제목없음 -- 메일쓰기" sap:VirtualizedContainerService.HintSize="450,1300" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="8a1570a5-f7ad-44ca-a652-da5491983bbe" Version="V2">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,1051" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into '편지지'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="8a1570a5-f7ad-44ca-a652-da5491983bbe" Text="yhryu@estec.co.kr[k(enter)]" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezEmail/mailWrite.do?cmd=NEW" DesignTimeRectangle="118, 119, 601, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT MsgTo'" FullSelectorArgument="&lt;webctrl id='infoTable' tableRow='2' tag='TABLE' /&gt;&lt;webctrl id='MsgTo' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='infoTable' tag='TABLE' /&gt;&lt;webctrl id='MsgTo' type='text' tag='INPUT' class='width100percent ui-autocomplete-input' aaname='' /&gt;" Guid="3c231756-a06f-474e-a8df-7e5db7ad83d6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAl0AAAAcCAYAAABbGQrLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFDSURBVHhe7djBjYNAEETRDYEjqZAKKRAsgZADsyrkGfmyB+OlT+9JJUu0A/ianwYAwONEFwBAgRFd53m2fd/buq5tnuc2TZOZmZmZfbh0VHoqXZW+6kZ05SC2zMzMzP5n6ar0VTeiK0WWP2zb1o7jeH0FAOAT6aj0VLoqfdWN6OqvXIILAOA76an+2tWN6Mohi2VZrl8AAO55b6sQXQAADxBdAAAFRBcAQAHRBQBQQHQBABQQXQAABUQXAEAB0QUAUEB0AQAUEF0AAAVEFwBAAdEFAFBAdAEAFBBdAAAFRBcAQIE/o2ue5+twHMfrCwAAd6Sn0lXpq25E17qu13HbNuEFAHBTOio9la5KX3UjuvZ9H69dZmZmZvbd0lXpq25E13me1yFFJr7MzMzM7i0dlZ5KV6WvuhFdAAA8R3QBADyutV9igH8xw/DvOgAAAABJRU5ErkJggg==" InformativeScreenshot="da2ce1524cb0f378442592a9dc21bd68.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='제목없음 -- 메일쓰기' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target DesignTimeRectangle="108, 72, 54, 29" ElementType="Text" FriendlyName="'편지지'" FullSelectorArgument="&lt;webctrl id='normalScreen' tag='TABLE' /&gt;&lt;webctrl aaname='편지지' parentid='menu' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='normalScreen' tag='TABLE' /&gt;&lt;webctrl aaname='편지지' parentid='menu' type='' tag='SPAN' class='' check:innerText='편지지' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAhCAYAAACIqrhwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEoSURBVFhH7ZXRCYMwEIa7lsvoKMENWrqC+NJ2CiEOIj5kiqsXmzbGJOWIQnvmg0Mhh97nb/SklIIj1PFE+75nWV5RbmRRbmRRbmRRbiSJjk0FRVGsqmpGvS7rCtpBn2pkve7FEh2ujtCWAqTunKH2x9g1UVf0zdBCVbbTqDaRwan9HpJF8ambBHXCtbSSYCSKcraoOUeCiXZiegjukJHBqf0ekkX1EFOKCIri/vmWqFmf95ohPDi130eCKN7ICLk1D+BN1KSDx8XrGBic2h8gPdEIa1EJwkpZJ/V6G/yDU/vDbCAavuFSdDm04bOv3etQ++PsKkqDep0s6mUjUftDtCz7dxPn50X/gyzKjSzKjSzKjSzKDa/o7f6A8+XKqtBpJcq9DiKq4AmXnRKwfCku/AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NTypeInto.Target>
+                      </uix:NTypeInto>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into '제목'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="8a1570a5-f7ad-44ca-a652-da5491983bbe" Text="[mailTitle]" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezEmail/mailWrite.do?cmd=NEW" DesignTimeRectangle="118, 239, 767, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT eSubject'" FullSelectorArgument="&lt;webctrl id='infoTable' tableRow='2' tag='TABLE' /&gt;&lt;webctrl id='eSubject' tableRow='7' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='infoTable' tag='TABLE' /&gt;&lt;webctrl id='eSubject' type='text' tag='INPUT' class='' aaname='' /&gt;" Guid="448b580f-1291-4b46-aca0-dfe6a7ed7977" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAwMAAAAcCAYAAAA9SmPwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC5SURBVHhe7ddBDcAwEMCw8Qd5VLpXK+0xAo0tBUSeBQAAJJkBAACIOjMwM5IkSZICbZ8ZAAAA7mYGAAAgygwAAECUGQAAgCgzAAAAUWYAAACizAAAAESZAQAAiDIDAAAQZQYAACDKDAAAQJQZAACAKDMAAABRZgAAAKLMAAAARJkBAACIMgMAABBlBgAAIMoMAABAlBkAAIAoMwAAAFFmAAAAon5nQJIkSdL9bWcGAACAFjMAAABJa73MP6/2reBYAQAAAABJRU5ErkJggg==" InformativeScreenshot="f29ba23ae1b14ddf2deea9db130ee35d.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='제목없음 -- 메일쓰기' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target DesignTimeRectangle="19, 236, 97, 33" ElementType="Text" FriendlyName="'제목'" FullSelectorArgument="&lt;webctrl id='infoTable' tableRow='2' tag='TABLE' /&gt;&lt;webctrl tableRow='7' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl id='infoTable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname=' &amp;#x9;                            제목 &amp;#x9;                        ' check:innerText='제목' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGUAAAAlCAYAAABbJCejAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE1SURBVGhD7dYxDoJAEIVhb03FCei4ABWeQE+gBcSODm9gbIg0xmZ1SGazrICJMeGNeSRfVhds+DMbN+51NU3j7vcHrUga6OWjEA5OCghpoBejgGAUQIwCiFEAMQogRgHEKIAYBRCjAGIUQCaidN3N5XnukiQZqeuTK4piWHe7/bCGv5O9+DdK7oXPIjE3KWW5dW179t8/RYn3hD4f76NgFECmougxpi9Vj6KlKOGRFWKUH5EJSdN09EKXJiUk95FDhExFkQCHw3FYL5er34ujyDo1HVOWQq7FTBR5eRIg/jwVxToTUeTYyrLMT4eQGBJiLsrc32iFfJSZmZQ530yKPj91DwGjAGIUQOaj/CNGAcQogBgFEKMAYhRAjAKIUQAxCqC3KFVVERAfpe97AsEogBgFTu+eockOHGQTY2cAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NTypeInto.Target>
+                      </uix:NTypeInto>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into '제목'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,250" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="8a1570a5-f7ad-44ca-a652-da5491983bbe" Text="[in_mailText]" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="about:blank" DesignTimeRectangle="19, 338, 868, 345" DesignTimeScaleFactor="1" FriendlyName="'BODY'" FullSelectorArgument="&lt;webctrl tableRow='10' tag='TABLE' /&gt;&lt;webctrl id='tbContentElement' tableRow='1' tag='IFRAME' /&gt;&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='BODY' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='tbContentElement' tag='IFRAME' /&gt;&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='BODY' type='' class='' aaname='' /&gt;" Guid="8f844b5e-5dd4-4961-9d06-4f119267d0ca" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA2gAAAFdCAYAAAB2Pk4KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAgKSURBVHhe7dexDcJAFAVB+q/MTbgDZxc4NBxISAhyr/CM9Aq4i/7ejodlWY4xhpmZmZmZmZ2w2WTTO9DMzMzMzMzsvH0EGgAAAOcQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIgQaAAAABECDQAAIEKgAQAARAg0AACACIEGAAAQIdAAAAAiBBoAAECEQAMAAIj4CrR1Xc3MzMzMLLZt256H+5X8+od/31eg7ftuZmZmZmaxzeP9auabxxiX2ivQjuMOfZ+lwfPG3qQAAAAASUVORK5CYII=" InformativeScreenshot="df2fedd4dd728c4f8e767fcd89bebaf4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='제목없음 -- 메일쓰기' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target DesignTimeRectangle="19, 236, 97, 33" ElementType="Text" FriendlyName="'제목'" FullSelectorArgument="&lt;webctrl id='infoTable' tableRow='2' tag='TABLE' /&gt;&lt;webctrl tableRow='7' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl id='infoTable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname=' &amp;#x9;                            제목 &amp;#x9;                        ' check:innerText='제목' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGUAAAAlCAYAAABbJCejAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE1SURBVGhD7dYxDoJAEIVhb03FCei4ABWeQE+gBcSODm9gbIg0xmZ1SGazrICJMeGNeSRfVhds+DMbN+51NU3j7vcHrUga6OWjEA5OCghpoBejgGAUQIwCiFEAMQogRgHEKIAYBRCjAGIUQCaidN3N5XnukiQZqeuTK4piWHe7/bCGv5O9+DdK7oXPIjE3KWW5dW179t8/RYn3hD4f76NgFECmougxpi9Vj6KlKOGRFWKUH5EJSdN09EKXJiUk95FDhExFkQCHw3FYL5er34ujyDo1HVOWQq7FTBR5eRIg/jwVxToTUeTYyrLMT4eQGBJiLsrc32iFfJSZmZQ530yKPj91DwGjAGIUQOaj/CNGAcQogBgFEKMAYhRAjAKIUQAxCqC3KFVVERAfpe97AsEogBgFTu+eockOHGQTY2cAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NTypeInto.Target>
+                      </uix:NTypeInto>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,240" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ClickType="Single" DisplayName="Click '발송'" sap:VirtualizedContainerService.HintSize="382,180" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8a1570a5-f7ad-44ca-a652-da5491983bbe" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezEmail/mailWrite.do?cmd=NEW" DesignTimeRectangle="18, 72, 42, 29" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'발송'" FullSelectorArgument="&lt;webctrl id='normalScreen' tag='TABLE' /&gt;&lt;webctrl id='spanT674' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='normalScreen' tag='TABLE' /&gt;&lt;webctrl id='spanT674' type='' tag='SPAN' class='' aaname='발송' check:innerText='발송' /&gt;" Guid="78236655-9fee-4829-8286-096ebac5064a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAAhCAYAAACm75niAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADiSURBVFhH7ZXRCcMgEIa7lss0o0g2aOgKeWs7RUAnyYNTWG0VtDHKYXNRuA9+0ITAdz8HuSildI/pX1xK2UWS4q1D4tiQODYkjk2V+DoPmi/uYlm4ZqPYnnew3w/z6m4wThQXmjMjfuXmBKdanDEWJxR3z6LhDN/vvLAdgIGbR23cD+ol7T08h+9KHNt4dlVicShV4iCC1Snld7VS1IvnhAqN13Bc45lVEWP9kOiN7+01dN//Iw5oqy3xVNufpH8ubazKSZA4NiSODYljQ+LYJMUfz5e+TfemYx034r2lU3Gl35HYI0vfVGpnAAAAAElFTkSuQmCC" InformativeScreenshot="bfda51c631d6056ed82ca0723eeee495.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='AP전표 캔슬요청 -- 메일쓰기' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <uix:Target DesignTimeRectangle="63, 72, 42, 29" ElementType="Text" FriendlyName="'저장'" FullSelectorArgument="&lt;webctrl id='normalScreen' tag='TABLE' /&gt;&lt;webctrl id='spanT48' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='normalScreen' tag='TABLE' /&gt;&lt;webctrl id='spanT48' type='' tag='SPAN' class='' aaname='저장' check:innerText='저장' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAAhCAYAAACm75niAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAENSURBVFhH7ZTRDYMgEEC7FsvIKMQN2nQFw0/bKUxwEOMHU1w5tRQRbI32KgkvuQQFw7vj8KS1hhQjffGmaZKIoPjRyeLUZHFqsjg1m8RVyYCxeYgaZzuQBQfZ9ksN+BxaL0DhdC2Alf3oK/apeCuBF9KoufjiDkaSV9PVSYh3FQfmr/+LOG7qHrltg4A4Jmnecz8p57uh1ZbZRVyVKOJvGKq4AmGTwfGYLEJe8VebzNrFEx8rHU2EVnxatb537eYLlzMEnbh77G9QfvhjfLic9h6MsUIa2VjxJcLi01NxIO/xKOvEowlFIBdHDt4qvyWLU5PFqcni1GRxaoLit/sDzpfroQMdZ+KpRaLiGp5oEkTPuUPcLgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <uix:NClick ClickType="Single" DisplayName="Click '닫기'" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8a1570a5-f7ad-44ca-a652-da5491983bbe" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="852, 1, 46, 31" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'닫기'" FullSelectorArgument="&lt;ctrl name='제목없음 -- 메일쓰기 - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='닫기' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='제목없음 -- 메일쓰기 - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='닫기' role='push button' automationid='' check:text='닫기' /&gt;" Guid="c4beee7c-8588-49b2-be3c-ed754d035fcd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAiCAYAAAAd6YoqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEdSURBVFhH7djNqkVQFMDxM1EGiLkXVJQHkxKZG/gKkSRl7gU8wDqtW/d06+57bjm29l5R/8leBn7ZO+Xhui7InOd5sK4rPPZ9B5lDyDzPNCDjOMoPcRwHiqKQH+L7PkzTRANCYmshZBgGGpC+72lAuq6jAWnblgakaZrzIaZpQpIkzBmGM8uymLMjIaSu6/MhURSBpmmQpumvGa4ZhsGcHQ0hVVXx2VosDK6djcAQUpYlvzPyE/PuLX0adwgWhiEoigKqqkIcx8x7Pu0yiK7rYNu2vBASW4v14Lww3CDvHpgHhhvkvw/i97lhzY50yWG/ohsiWjdEtG6IaN0Q0XpBsiwDkcvz/Ot3z7IssG3b35AgCEDmXhCQ/CIGKeEJgpd2DLcxIykAAAAASUVORK5CYII=" InformativeScreenshot="29fdc3897b02e52173b6da9a56c32844.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='제목없음 -- 메일쓰기 - 프로필 1 - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target DesignTimeRectangle="806, 1, 46, 31" ElementType="Button" FriendlyName="'최대화'" FullSelectorArgument="&lt;ctrl name='제목없음 -- 메일쓰기 - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='최대화' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='제목없음 -- 메일쓰기 - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='최대화' role='push button' automationid='' check:text='최대화' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAiCAYAAAAd6YoqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACQSURBVFhH7dUxCsAgDIXh3H8U1As4ehpHr+EBXnFziGBpoWl4hW+J6fB3qFJKgQcyxoAHDLGGIdYwxBqGWMOQndYacs4IIajm2dzR3n3i9ZCUkjpfnezc9XrI/OrafHWycxdDdhjyEEN23ITEGNX56he/XzcX4lcYYg1DrGGINQyxRnrv8EBqrfBA4ORxEgJcAg4J2/Jbc4AAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVDhPY0AC8UD8Hoj/Y8H9QEwQ3AdiBQgTBYAMWADE88E8PACkEBuAiRM0hJABIIDXEHwGCECYYIDTEFwGNAAxSA4dYwCsgjjAqAHD1wBQTsSWmdABSA0o42GABCAGSYBMx4dBFoHUAgEDAwBN0Tbbkk+sUQAAAABJRU5ErkJggg==" InformativeScreenshot="d258c80561eedf323bc5eee15ef05afb.jpg" Selector="&lt;html app='msedge.exe' title='제목없음 -- 메일쓰기' /&gt;" Url="https://ngw.estec.co.kr/ezEmail/mailWrite.do?cmd=NEW" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+              <uix:NClick ClickType="Single" DisplayName="Click 'SPAN util_help'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="54e9ec81-70e1-4346-9ec9-c68e21639086" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://ngw.estec.co.kr/ezNewPortal/newPortalTopMenu.do" DesignTimeRectangle="1895, 133, 21, 21" DesignTimeScaleFactor="1" FriendlyName="'SPAN util_logout'" FullSelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='util_logout' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='util_logout' tag='SPAN' type='' class='icon_topmenu util_logout' aaname='' /&gt;" Guid="c2d6b259-d23d-4cff-88e8-292093b068af" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABXSURBVEhL7c1BCgAgCETRbun9T2K0i0hTGjTID7MTX+OACnGVjxCROmvvILdBkNMNDNHuoIh060bmh9LWPkZ2acAIikjBEC0IcsqESLOWj6AqxFUAwtwBKpYDrCr1GPEAAAAASUVORK5CYII=" InformativeScreenshot="b8227e77326110599960442a8965ece2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="1860, 133, 21, 21" FriendlyName="'SPAN util_help'" FullSelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='util_help' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='topFrame' tag='IFRAME' /&gt;&lt;webctrl id='util_help' tag='SPAN' type='' class='icon_topmenu util_help' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVEhL5ZQ9i4NAEIbvXxpEUkSsxdjFxsIfkNZCEFLYJVjYWwQUYpE2bVKnEz9AMsfsjabZc7IpjuPugYHlnWUe1l38gB/gH0qKogDP80DXdVG4xuwVXpLsdjvQNE1a2ONgJafTaRpomibEcSwK12NeVRXtlsNKfN8XgyzLgvv9TimINWbYwz1zsBLDMMSgJEkoeYIZ9nDPHKxktVqJQWVZUvJkv9+LHtYcrOR2u4lv/ng8KPmi6zpwHEcI1us1pXJYiQwUbzab6RRZllFHjrLkfD5P94QVBAEMw0BdOcoS27bF8MViAVEUQd/31PkeJUnbttMJ0jSllEdJUtf1JMnznFIeJQm+qFFyPB4p5VG+E3xJYRhC0zSU8ChL3kFZgn9d13Xher1SwqMsGX8zh8OBEh5lyXa7heVyCZfLhRKe33kn7/BXJACfL9A/r8pTfX4AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'msedge.exe ESTec'" sap:VirtualizedContainerService.HintSize="450,132" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="eb02e1ca3916fd0bfa85354774c68d55" WaitForReady="INTERACTIVE" />
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_1" InformativeScreenshot="b65455dda7b664eb6445b91bb4c29362.jpg" Selector="&lt;html app='msedge.exe' title='ESTec Groupware' /&gt;" Url="[groupware_Url]" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,115" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;캔슬요청 메일 발송 END&quot;]" />
+    </Sequence>
+  </Sequence>
+</Activity>

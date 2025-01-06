@@ -1,0 +1,241 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="fileDownLoad" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="fileDownLoad_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="fileDownLoad" sap:VirtualizedContainerService.HintSize="1074,2245" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBetweenKeys="0.5" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="620,211" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(alt)]f[u(alt)][u(hk)][d(hk)]e[u(hk)]" Version="V3" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Internet Explorer" sap:VirtualizedContainerService.HintSize="620,2011" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="36fc3946-16ee-481c-ab5b-577df3db7d37" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="586,1697" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Download File - Sequence" sap:VirtualizedContainerService.HintSize="552,1096" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ForEachFileX DisplayName="For Each File In Folder" Folder="Y:\RPA\dev\직수출자동화\temp" sap:VirtualizedContainerService.HintSize="518,763" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                <ui:ForEachFileX.Body>
+                  <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                    <ActivityAction.Argument1>
+                      <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                    </ActivityAction.Argument1>
+                    <ActivityAction.Argument2>
+                      <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                    </ActivityAction.Argument2>
+                    <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="484,477" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[CurrentFile.ToString.Contains(&quot;.xls&quot;) or CurrentFile.ToString.Contains(&quot;.csv&quot;)]" sap:VirtualizedContainerService.HintSize="450,415" sap2010:WorkflowViewState.IdRef="If_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[CurrentFile.FullName]" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachFileX.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachFileX>
+              <uix:NClick ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="36fc3946-16ee-481c-ab5b-577df3db7d37" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="18, 220, 383, 41" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd aaname='Internet Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='다른 이름으로 저장(A)' cls='Button' title='다른 이름으로 저장(&amp;amp;A)' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Internet Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='다른 이름으로 저장(A)' cls='Button' title='다른 이름으로 저장(&amp;amp;A)' check:text='unchecked' /&gt;" Guid="570645b8-f6c9-45ab-b120-82828d30f4ab" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYMAAAAtCAYAAABMBQc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARjSURBVHhe7duxb9NAFMfx/kfsXfhT2LqyduNPIIxMrBULA1IXpE6MSCxFDJUqMbRCpQjUpR2QjO98Tpzze+9sn69p6+9HOok0zvn8nLyfnYi9CgCweIQBAIAwAAAQBgCAGmEAACAMAACEAQCgRhgAAAgDAABhAACoEQYAAMIAAEAYAABqhAEAgDAAABAGAIDaow2Ds5Pzam91XZ2Fx7Hjo+/V3mFiHN2Erefl9r1/chcebdvlunbNqkvS6YV5vgHkKRIGXy9vw7+muKtWK6FB+nFera6arVJhkOJfP6XpXl1X+901CXPkNL1h61JqlKyHVdvOGFPXuB7x6ByLWBfX5KXXhXFw2tnOWJf6fgjzr+fp8MH8RIMXGGv2MHj9+bf/8L378jf8ZaymYUkf3q6dhEFofJu1heYazWOFgW9AodGpw1pXaG7S/P6Y6udStTNlXYHb5y4dkjfVweFFdRwebbHWZTzn97nSz3V6TcAyzB4Gf27/Vc/eNE1pWiDMEwbZTVcgNw7XwDZ3LI7VYPKaj9uXXZvckNxpGPiw3a7lmrouY59+vjpcrHnbbcJDYKmKfE2UFwjzhcG8V3z9pt+K91U2DJSm1jKbW1PbXijGY3IYNGE19djd837/Uki7MFivsVMDd7zKert3f/q+h73fgKeu2A/I0wPhgYaB0WS7Tcex9r1ueOawm7lVG7suhRufr1G9/rYW7ePO0Ori1+2PW7n7Ue4M4tpvRMdq3PHocwDLUSwMnGmBMCIMOk0m3j6v6QpmCoNs4QpZmr+tiV67smHg9786V+uk1aU5V93XCIGgNHP3WvF4fJ0Sc7aMoACWYnAYvPz4s3r+9sfo0YaBG8MCYUQY3OsHWP+KJm5y/abXNKK2DsOHFlZNjXrbJ+uhvE4YowPDh2VTH9/chSvtfl3CesR1h+faecSGrb9XpDVo6yIMgBFh4Bq71DTGDBcoafoHvEsOg7mb7rZ+M6t1mmBL3O6Biu9qpmnO2fqYw9dD8TnMqsuoMLDeB8K5JgyAsl8TOe5uwH0IX7y/DH9JyQmDwnpNrlmrdAWqNT1/dbrVnISR3ZyHyw+DUIP4XLgGOzok9SauvR/cnPFz1jGJayAMgLJhMD4InNBcomawGc2VXSoM0o1nohAI6/UITcfad2pd81ypD5e7P3c86nnwtdpciZvH7sNDa/py6Dr9ORMXE0Ljv++aAw9RsTCYFgTD7SwMBrD2nVqX3Jhyv/4q+/XZUDl1iYNlLW7ufjv5t51GU4v47k4ND2AhioRB6SBwlhUGT4N57BPvDJrmvmn+bh/W+8Lx27RzaSEDLMzsYfDh203xIHCGhMHmClcbZZqA1fQGrWuJYeCN/83AyQnQ9JqAZZg9DNz/LXj16Vd4VE4qDHaJBiMrWRcfsiMDwb/mgb6HgPtW9AdkAMDjQBgAAAgDAABhAACoEQYAAMIAAEAYAABqhAEAgDAAABAGAIAaYQAAIAwAAIQBAKBGGADA4lXVf25YqdYgcjQOAAAAAElFTkSuQmCC" InformativeScreenshot="62a412d8202b002408b50fed4e7bbc1a.png" ScopeSelectorArgument="&lt;wnd app='iexplore.exe' cls='#32770' title='Internet Explorer' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="18, 179, 383, 41" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd aaname='Internet Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='저장(S)' cls='Button' title='저장(&amp;amp;S)' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Internet Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='저장(S)' cls='Button' title='저장(&amp;amp;S)' check:text='unchecked' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYMAAAAtCAYAAABMBQc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMGSURBVHhe7ds/a9RgHMDxviP3Lr4Ut66ubr4Ez9HJtbg4CF2EujgKLpUOxYJDi9SKUpB2EGKe5Mk1l8tzyf1JvXCfDzzQ6/3L9PsmT9q9LPrw9U/8CYBdUJ/7MzGwLMuydmtVpjEAYHeJAQBiAIAYAJATAwDEAAAxACAnBgCIAQBiAEBODAAQAwDEAICcGAAw7hgcHZ5m+8d38dGSTi6yvcl1dhYfAuyyQWLw+fI2/rSCq+ts/9lptpdahzfxhYkYhCHf9r64Dk5qr1sQg7Pj89nn547rIjuKT4XjqB8XwNhsPAYvPv4shuXrT7/jb9Zxl00mtQHe0H1lcJMd1Ib2jEUxaDxXhKH5OXkcDmrfvdZVCsB/tvEY/Lr9mz16GYbnJoKwZgyKs/nzbHIVH9clY9D8zsXHMFV8VyI8AFtukG2izQUhnNmnB35XDIrtm7Cl07aFM7OdVAtGGOozkSiPoTMGfaMBsIUGu4G8kSBU+/TVMK8e11YqBvdbO4lhnrgyKN7XiEcZlcQVRk3bewHGYLAYBOsGobyJe57cfkldGZTDu/6eliAkYhDe23Z2P73KaN1aipJbTwDbrXcMnr77nj1+9W3pVcVg6SDU9vuLQdxyxj0fg3KrZtG9gOnntA7urq2eMirJKxIxAEaqdwzCYK+G+qorBKWfcihPB27cHmoO6fkYLGGlGETN7auKGAAjNeg2URCuBkIInry5jL/pkji7D4O2sW/fHYP7M/nmSg388JmdMQiK42lsX4kBMFKDxmD5EMQtodRALc7I7wfwwhgUwzo12BtbRjW9rzYaxxK4gQyM1WAxWCUEy1o0uDuHesswL8yd3edXF3NxaotJzy0mgC00SAweIgTBEFcG5dZS489Iq3sEtTX3vam4AIzAxmPw9svNg4Qg6N7SWf6eQbDKdk/v7SWALbTxGIT/LXj+/kd8NKwhB3D47L5BKF7rxjEwYoPeQAZgHMQAADEAQAwAyIkBAGIAgBgAkBMDAMQAADEAICcGAIgBAGIAQE4MAHZelv0DlOcYYLtvH5QAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="518,182" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="36fc3946-16ee-481c-ab5b-577df3db7d37" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="747, 496, 88, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='저장(&amp;amp;S)' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='저장(&amp;amp;S)' check:text='unchecked' /&gt;" Guid="df03424b-adb2-4024-8d0d-0df1f85d6a60" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAeCAYAAAChf3k/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGmSURBVGhD7ZfBkcMgDEXpiW6oZG+0QitUkbM7cAesFdusJBTWMzaYXevwZmIgOjx95MTM85yUfqjwzqjwzhDh5uulNIA4Jg/CYeU8xDF52A5M06RcgArvjArvjArvzO3CgzPJmBIXYD8mb23ycT8Pz9J5lwLsB5eMC7n2iNwuPBN9stanSNa5cMQi1/pYrInCofbelCkkh5q114DGr01uy58VHr1Nhp8XhUMNLJvWC36vgc+1YxzhIAuPhpxCQfg7sXZpENtD38tpXdbyTRCbisBnGzGM8OBAIL/WUsJxSuEzSiUIZwkPDqcW6tVGx1Kv1pALGEP4nrwigUz4luyPDSiESwJX6fk2FXttx8oAwmlK37M5S5MSXuGQcLQH46d6I67nZuEonWgdpK+z9LPwd2PynN9g8urCV2CU/dR/RMJryMLpLUAUCWcCl5HkyEuRN/z3Bp3lXwmX1mENvyT5zSAv0Cf9SpE5O1KA46ml46UNgwu/COHnIgf+abZON/AM4QOhwjujwjujwjtzWLhyLcQxeRAOK+chjvGD0h4V3hkV3pU5fQNed27uvbXRQgAAAABJRU5ErkJggg==" InformativeScreenshot="5af2862da3821f54afce97d9d39ced9d.png" ScopeSelectorArgument="&lt;wnd app='iexplore.exe' cls='#32770' title='다른 이름으로 저장' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="847, 496, 88, 26" ElementType="Button" FriendlyName="'취소'" FullSelectorArgument="&lt;wnd ctrlid='2' title='취소' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='2' title='취소' check:text='취소' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAeCAYAAAChf3k/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAELSURBVGhD7dbBEYMgEIXh7YluaIZWaMAiKMUO6GAjJJkgiE5mZAHnHb5DxFx+35iQ955BDoILQ3Bhu+DLskADaeMi+LqucCMEF4bgwhBcGIILmya4M4q13V+zmoprqfAdZdzhWS9jB7eaieiAZrudXwUP56Tt4VkvkyzcsVFUrPUseFh3iB3uGWnlEwS3rLdVK2Nj9HSxteD5suNnZdgl9/QydPAYihQb97sWl7s9gBA6D/6+v7J6Z1iF11HnV8wEC6/Lg+fwo/mP7yJrPu9nBG8kxMvjInhDl8GrfyFLZw+ptUcvfEQILmya4E+B4MIQXBiCC0NwYQgu7DI43C9tvAsO7SG4MAQX5fkFIemGyduUU00AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+            </Sequence>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: MSN - 뉴스, 핫메일, Hotmail, Skype, 아웃룩 메일, 원드라이브" sap:VirtualizedContainerService.HintSize="552,539" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="ead85d5b-473f-40f1-a749-bb69fcebae94" Version="V2">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,297" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" sap2010:Annotation.AnnotationText="다운로드 후 윈도우 창 닫기" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="382,235" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][d(ctrl)]w[u(ctrl)][u(hk)]" Version="V3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NKeyboardShortcuts>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAG+SURBVEhLtZaxSgRBEET9IIODiwwEIwPBTBBDQQwFMRTEUNBYNFaMFWM1V3P1A84PuB/Qx+6w9NV0z4zHWVRwO7vdNV3TvXtLy6Pxv7IusL6xeXl1DY9PTldW1+RulRUB8v4YTKfT3b19eabMksDZ+UVKPIuDwyN5ssBQADfYb0o5C9bbvQoFcDzl83D/8CjPRwwFSJGSBWgsIhR4fXtPmQJQooS4nF+g0aX5BXhAQjCNJmZu7OLCBOjdvutkPRSQEcthE7HxtNouwI5SRIAhEZ7YiWkVICxFBBgS8SMtdaD0IQkMBeDH51cK8tAL5IW2HjIsD3O/08nkO113EH9gSQAWikA+3/7W9o5kqAjY9hCQS9y/ub2TcFgRgG6/4gwC6aIDtbpvp4oAWSgif/Gxwn7TRfcCz83p2XTIWCGHgart/cInKBQotBCp7V0+fBJr6QuIvwL8sQVRjYRb+gLSHgI5dpksoSNQaE1A/9gz51LChY6AbY8cuG+Pt/rZcQQK/nBLjqfsD/yDABsnnTXQHV2hI+D+3xpGaRCIRlfoCBAmY4XRNtfT84usFOgIQII5TNqRaqoul+kLLIyj8S/xI5Ze8rhNvwAAAABJRU5ErkJggg==" InformativeScreenshot="e1be278f5069536bc45d6a17328bd7b9.jpg" Selector="&lt;html app='msedge.exe' title='MSN - 뉴스, 핫메일, Hotmail, Skype, 아웃룩 메일, 원드라이브' /&gt;" Url="https://www.msn.com/ko-kr?ocid=iehp" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="742, 329, 419, 320" FilePath="C:\Program Files\Internet Explorer\iexplore.exe" IconBase64="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" InformativeScreenshot="4e463092025f0959ff8621ba8c20d849.png" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Internet Explorer' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
