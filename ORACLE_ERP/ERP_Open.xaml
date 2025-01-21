@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1843,9936</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1939,5490</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UiDemo_Open_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="88">
@@ -117,7 +117,7 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open UiDemo desktop app and login using the credential stored in Orchestrator.&#xA;&#xA;Pre-condition: none.&#xA;&#xA;Post-actions: UiDemo app is ready to be used." DisplayName="ERP_Open" sap:VirtualizedContainerService.HintSize="1817,5149" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Open UiDemo desktop app and login using the credential stored in Orchestrator.&#xA;&#xA;Pre-condition: none.&#xA;&#xA;Post-actions: UiDemo app is ready to be used." DisplayName="ERP_Open" sap:VirtualizedContainerService.HintSize="1949,5425" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Username" />
       <Variable x:TypeArguments="ss:SecureString" Name="Password" />
@@ -128,21 +128,21 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Workflow Start" sap:VirtualizedContainerService.HintSize="1817,124" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[String.Format(&quot;Opening eStec ERP from {0} with the credential named {1}&quot;, in_UiDemoAppPath, in_CredentialName)]" />
-    <p:GetSecureCredential CredentialType="Generic" DisplayName="GetSecureCredential for UiDemo" sap:VirtualizedContainerService.HintSize="1817,112" sap2010:WorkflowViewState.IdRef="GetSecureCredential_1" Password="[Password]" PersistanceType="Enterprise" Target="[in_CredentialName]" Username="[Username]" />
-    <Sequence DisplayName="ERP 접속" sap:VirtualizedContainerService.HintSize="1817,4818" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <ui:LogMessage DisplayName="Log Message Workflow Start" sap:VirtualizedContainerService.HintSize="1887,124" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[String.Format(&quot;Opening eStec ERP from {0} with the credential named {1}&quot;, in_UiDemoAppPath, in_CredentialName)]" />
+    <p:GetSecureCredential CredentialType="Generic" DisplayName="GetSecureCredential for UiDemo" sap:VirtualizedContainerService.HintSize="1887,112" sap2010:WorkflowViewState.IdRef="GetSecureCredential_1" Password="[Password]" PersistanceType="Enterprise" Target="[in_CredentialName]" Username="[Username]" />
+    <Sequence DisplayName="ERP 접속" sap:VirtualizedContainerService.HintSize="1887,5014" sap2010:WorkflowViewState.IdRef="Sequence_17">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="1783,4735" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+      <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="1825,4903" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
         <ui:IfElseIf.ConditionBlocks>
           <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
             <ui:IfElseIfBlock BlockType="If" Condition="[Integer.Parse(in_Option) = 0]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
               <ui:IfElseIfBlock.Then>
-                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1732,25" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_42">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -421,7 +421,7 @@
             </ui:IfElseIfBlock>
             <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Integer.Parse(in_Option) = 1]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
               <ui:IfElseIfBlock.Then>
-                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1732,25" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_43">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -939,14 +939,14 @@
             </ui:IfElseIfBlock>
             <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Integer.Parse(in_Option) = 2]" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
               <ui:IfElseIfBlock.Then>
-                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1732,4214" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1774,4382" sap2010:WorkflowViewState.IdRef="Sequence_54">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="ERP 로그인" sap:VirtualizedContainerService.HintSize="1628,57" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" OpenMode="IfNotOpen" ScopeGuid="b478247b-3cfb-408c-b34b-9e932017a1f6" Version="V1">
+                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="ERP 로그인" sap:VirtualizedContainerService.HintSize="1712,57" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" OpenMode="IfNotOpen" ScopeGuid="b478247b-3cfb-408c-b34b-9e932017a1f6" Version="V1">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -1016,27 +1016,27 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NApplicationCard>
-                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Oracle Applications 11i" sap:VirtualizedContainerService.HintSize="1628,797" sap2010:WorkflowViewState.IdRef="NApplicationCard_17" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="3665de64-fbb7-4d78-9466-37a61fff1b63" Version="V2">
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Oracle Applications 11i" sap:VirtualizedContainerService.HintSize="1712,853" sap2010:WorkflowViewState.IdRef="NApplicationCard_17" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="3665de64-fbb7-4d78-9466-37a61fff1b63" Version="V2">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="988,548" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,604" sap2010:WorkflowViewState.IdRef="Sequence_59">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NCheckState DisplayName="Check App State 'msedge.exe Oracle'" sap:VirtualizedContainerService.HintSize="954,486" sap2010:WorkflowViewState.IdRef="NCheckState_15" ScopeIdentifier="3665de64-fbb7-4d78-9466-37a61fff1b63" Version="V3">
+                          <uix:NCheckState DisplayName="Check App State 'msedge.exe Oracle'" sap:VirtualizedContainerService.HintSize="954,514" sap2010:WorkflowViewState.IdRef="NCheckState_15" ScopeIdentifier="3665de64-fbb7-4d78-9466-37a61fff1b63" Version="V3">
                             <uix:NCheckState.IfExists>
-                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,244" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,272" sap2010:WorkflowViewState.IdRef="Sequence_57">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NClick ClickType="Single" DisplayName="Click 'msedge.exe Oracle'" sap:VirtualizedContainerService.HintSize="416,182" sap2010:WorkflowViewState.IdRef="NClick_49" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3665de64-fbb7-4d78-9466-37a61fff1b63" Version="V3">
+                                <uix:NClick ClickType="Single" DisplayName="Click 'msedge.exe Oracle'" sap:VirtualizedContainerService.HintSize="388,182" sap2010:WorkflowViewState.IdRef="NClick_49" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3665de64-fbb7-4d78-9466-37a61fff1b63" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable Accuracy="0.59" DesignTimeRectangle="1051, 774, 97, 23" DesignTimeScaleFactor="1" FriendlyName="'msedge.exe Oracle'" Guid="1ab89395-8898-4ede-b9f7-981c1daf587f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGEAAAAXCAYAAAAbfSF/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALrSURBVGhD7ZbJUhsxEIb7mTBQ5VfBpCAHvwbLBW5+BfYcgJufgPUGXOeQ1QkhCwkhyXGqmm5JM1JL8sSejBlSmcMnSt2tpf9fA8Dt7xQb6gW+/kqxoV7gCw0N9QKff6bYUC+NCU8A+ETD/8KL54DPDuO5OoGb+xSrYG8RECBknpq+uU9wdbaLe96a8/V2dI1isS9qoxx2I3XeWVc9nB6yP9+Z78f30Pesh8pMyOGmZ3t4LuJxE4YSFTfCKCYUUGSCeiBq7z7OewZmtbx+ej0R68oAH2moFGPCmYhrYXZFrAASl5uL5nJ4TxaljatXftw/SwqZ7b1rTDgzJuT1ogde65zBxkO2P5/lnz8+cP0jxUo50JfcEfEEV0gYGSuA9miRUNGcgvcjQemlXl/2sEUirVy6OXnWDot94OZ1Pcfz153ntSn2fG2C3d+bc798D7O2DJWbkDXmNhUIo4yyAhQh92H0q5Ym6ZiuHc8EjqsvIZK3e3ui81eicgQ/AndeAvhAQ2VkX4G56Gmes8IEax4FPt8aywZynE3okPinZAL/1LV97Jgv2c6dh0Gv3u4bqx8feH+XYjXwZfSL4fk2fxF0YZ0jEWa6uC3qUzxZG/7fUWstEbUhnjiC8Kwi+B6d/WyuRbXrnb7Urz5/b+7N9l0GGNDw99iLuvFjao7FHBgTtpyczMv4YJ/+JsTiIxE/S6FEDE1jA2ydNsGul72Fd/brx6ciE/7EJEzg5kNBNRFRzCuOibXFv5ZyI+zL1nP/gXlz3nemh8cqVw549z3FyZPgMpmw6cWPjAluTGFMCOKCPs6RqP6eQ7nQJsTqNxcA58iEbC7vxee0cflC5oGEP+I53RUW+nmuDPCWhsmT4BKZsOHFVTPRlww4RSK4tSEsTnwtw6IGa8iIqVFquc6ILOIB3Fcbl8igeH40HsmEfw/1QOiF+4a5bNAXxDWx9eMAb76l2FAv8JqGhnppTHgCwKvbFBvqBV7S0FAnKT4AJMEKsOfDjr8AAAAASUVORK5CYII=" InformativeScreenshot="53ab4cda4b246b0c02ec4463fb973f5d.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Oracle Applications 11i - 프로필 1 - Microsoft​ Edge' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V1" Visibility="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -1050,7 +1050,7 @@
                               </Sequence>
                             </uix:NCheckState.IfExists>
                             <uix:NCheckState.IfNotExists>
-                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_58">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1087,27 +1087,27 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NApplicationCard>
-                  <uix:NCheckState DisplayName="Check App State 'Functions'" sap:VirtualizedContainerService.HintSize="1628,3300" sap2010:WorkflowViewState.IdRef="NCheckState_13" Timeout="40" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Functions'" sap:VirtualizedContainerService.HintSize="1712,3384" sap2010:WorkflowViewState.IdRef="NCheckState_13" Timeout="40" Version="V3">
                     <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1124,3060" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1208,3144" sap2010:WorkflowViewState.IdRef="Sequence_62">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Oracle Applications - ESTec ERP System" sap:VirtualizedContainerService.HintSize="1090,2998" sap2010:WorkflowViewState.IdRef="NApplicationCard_18" ScopeGuid="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Oracle Applications - ESTec ERP System" sap:VirtualizedContainerService.HintSize="1146,3054" sap2010:WorkflowViewState.IdRef="NApplicationCard_18" ScopeGuid="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1056,2682" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1112,2738" sap2010:WorkflowViewState.IdRef="Sequence_61">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1022,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1050,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                   <ui:CommentOut.Body>
                                     <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="450,240" sap2010:WorkflowViewState.IdRef="Sequence_73">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -1135,7 +1135,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:CommentOut>
-                                <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'Functions'" sap:VirtualizedContainerService.HintSize="1022,189" sap2010:WorkflowViewState.IdRef="NClick_56" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Version="V3">
+                                <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'Functions'" sap:VirtualizedContainerService.HintSize="1050,189" sap2010:WorkflowViewState.IdRef="NClick_56" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable DesignTimeRectangle="21, 118, 89, 23" DesignTimeScaleFactor="1" ElementType="TabPage" FriendlyName="'Functions'" FullSelectorArgument="&lt;java name='*EK1*' role='internal frame' /&gt;&lt;java name='Functions' role='page tab' /&gt;" FuzzySelectorArgument="&lt;java name='Navigator - EK1_AP_GENERAL_USER' role='internal frame' /&gt;&lt;java name='Functions' role='page tab' check:text='Functions' /&gt;" Guid="c62f49ae-004a-4db5-a179-ad3a7c6d6cb6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAAAbCAYAAAAecIOyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAESSURBVGhD7ZDRDcMgEEPZtFN0kqobdIcuwU6p7uMkB5kQSOD6YaSngn0Q9aXH87WJtUh6AFT6+/MVF2BOkZ109oAYB906tiR9IujW2Ulnl8R1SuE5Z0mfjaQHIOkBSHoAU6SnlChsdiYR3zzDNOksXwF+W9IX8a+ikeXSWYeZ7Utwls2w3M/elX2rK3s2U/ZnmSad4R2bZ3uW9fSj91jW6nuYJp3lxtU/d/S2UZsdebfVjyLpZF/L7Ixg14Okk/1RhrT6GuHS7YwZuzvaj95jWavvYbl0w3rHz9j5vpb5XQc77/EXc6Ts8MwyvMvmzzJFujhG0gOQ9ABK4ZK+AEkPwJcLr0rXum+hbCrdFxsUd5G3H/5Usy04QhK1AAAAAElFTkSuQmCC" InformativeScreenshot="7a260ae4792b18ba99142544e9b66939.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -1146,7 +1146,7 @@
                                     </uix:TargetAnchorable>
                                   </uix:NClick.Target>
                                 </uix:NClick>
-                                <uix:NClick ClickType="Double" DelayBefore="1" DisplayName="Click '2. Invoices'" sap:VirtualizedContainerService.HintSize="1022,189" sap2010:WorkflowViewState.IdRef="NClick_46" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Version="V3">
+                                <uix:NClick ClickType="Double" DelayBefore="1" DisplayName="Click '2. Invoices'" sap:VirtualizedContainerService.HintSize="1050,189" sap2010:WorkflowViewState.IdRef="NClick_46" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable DesignTimeRectangle="385, 239, 275, 21" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'2. Invoices'" FullSelectorArgument="&lt;java name='Navigator - EK1_AP_GENERAL_USER' role='internal frame' /&gt;&lt;java name='Functions' role='page tab' /&gt;&lt;java name='Top Ten List' role='list' /&gt;&lt;java name='2. Invoices' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Navigator - EK1_AP_GENERAL_USER' role='internal frame' /&gt;&lt;java name='Functions' role='page tab' /&gt;&lt;java name='Top Ten List' role='list' /&gt;&lt;java name='2. Invoices' role='label' check:text='2. Invoices' /&gt;" Guid="24028a67-90bf-433a-8b62-9473f0fc2973" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARcAAAAZCAYAAAAbrmoQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVHhe7dTbbcMwDIVhb9opOknRDbJDl/BOLvhggGFPQ+vCBIj+DyACUpTzpLPt+35Yfd9+jo/PrwMAeliOnL9WhAuAKQgXACUIFwAlCBcAJQgXACUIFwAlCBcAJQgXACUIFwAlmsNl27Y/1ar33ohX/CewsqZwUQ+059H23Bn1iv8EVrZMuAB4rqZwUWaEy9nH8uLsv96X92jmK5q1A6xmKFx6H1K8p76T7fg+npk4y3pTtQOsqDtcRh5QvKu+le34Pp6ZOMt6Re3EmdoB0Bkuow8q3lffy2b+LNs1Wa+cO6q87BxYUXO4zHg88Rvqm9nMn2W7JuuVKztK7z3gnTSFS/Zorj6quKfuqZm5uhtnWW+qdoAVdYWLKn+eiXvqnpqZbO7LezTzFc3aAVbTFC4AcBXhAqAE4QKgBOECoAThAqDEfbjsxy/0dEFWXBiynAAAAABJRU5ErkJggg==" InformativeScreenshot="3952add44b31af4d950f7e51e2f6cdff.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -1157,9 +1157,9 @@
                                     </uix:TargetAnchorable>
                                   </uix:NClick.Target>
                                 </uix:NClick>
-                                <uix:NCheckState DisplayName="Check App State 'text Supplier: Name값 목록'" sap:VirtualizedContainerService.HintSize="1022,2185" sap2010:WorkflowViewState.IdRef="NCheckState_14" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Timeout="30" Version="V3">
+                                <uix:NCheckState DisplayName="Check App State 'text Supplier: Name값 목록'" sap:VirtualizedContainerService.HintSize="1050,2213" sap2010:WorkflowViewState.IdRef="NCheckState_14" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Timeout="30" Version="V3">
                                   <uix:NCheckState.IfExists>
-                                    <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="518,1943" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                    <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="546,1971" sap2010:WorkflowViewState.IdRef="Sequence_55">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1176,7 +1176,7 @@
                                           </uix:TargetAnchorable>
                                         </uix:NTypeInto.Target>
                                       </uix:NTypeInto>
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'text Invoice:'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="NTypeInto_23" InteractionMode="HardwareEvents" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Text="[Now.ToString(&quot;yyyy&quot;) + &quot;/&quot; + Now.ToString(&quot;MM&quot;) + &quot;/01&quot;]" Version="V3">
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'text Invoice:'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="NTypeInto_27" InteractionMode="HardwareEvents" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Text="[Now.ToString(&quot;yyyy&quot;) + &quot;/&quot; + Now.ToString(&quot;MM&quot;) + &quot;/01&quot;]" Version="V3">
                                         <uix:NTypeInto.Target>
                                           <uix:TargetAnchorable DesignTimeRectangle="451, 349, 116, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text Invoice:'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Dates: Start값 목록' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Dates: Start값 목록' role='text' /&gt;" Guid="c440cd43-1d90-450e-bc74-535132c3560d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHgAAAAcCAYAAACqAXueAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACQSURBVGhD7dWxCcAwDAXRbJopMonJBtkhS3gnBxUGg8CpddzB79Q9jI/zamNd792BloAdawLDJzB8Cfh+3mE1C7tY/L3TMwFb7QSGJzA8geEJDE9geALDExiewPAEhicwPIHhCQxPYHgCwxMYnsDwBIb3CxwHVrOw2wLPA1d3gbt9wfPA1d3qmYAdawKj18YHUlCY+2dqjioAAAAASUVORK5CYII=" InformativeScreenshot="a90cc55489f58952eff5055fb9d951f6.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
@@ -1187,7 +1187,7 @@
                                           </uix:TargetAnchorable>
                                         </uix:NTypeInto.Target>
                                       </uix:NTypeInto>
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'text Invoice:'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="NTypeInto_24" InteractionMode="HardwareEvents" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Text="[Now.ToString(&quot;yyyy&quot;) + &quot;/&quot; + Now.ToString(&quot;MM&quot;) + &quot;/&quot; + DateTime.DaysInMonth(Now.Year, Now.Month).ToString]" Version="V3">
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'text Invoice:'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="NTypeInto_28" InteractionMode="HardwareEvents" ScopeIdentifier="657cac97-4e01-4fb7-bad7-ba9a3ffef71e" Text="[Now.ToString(&quot;yyyy&quot;) + &quot;/&quot; + Now.ToString(&quot;MM&quot;) + &quot;/&quot; + DateTime.DaysInMonth(Now.Year, Now.Month).ToString]" Version="V3">
                                         <uix:NTypeInto.Target>
                                           <uix:TargetAnchorable DesignTimeRectangle="615, 348, 115, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text Invoice:'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Dates: End값 목록' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Dates: End값 목록' role='text' /&gt;" Guid="d84dadaa-3cd7-42ce-87b8-37662bbf13ed" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAcCAYAAABbCiATAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACUSURBVGhD7dXBCYAwEAVRO7UKKwl2YA82kZ4ie1hQAvG8wwz8294exm0/2sid1+1A++DGeu8OsgnXcSYueBNuvNVWr/zPxnOclhOu1U1ccOKCExecuODEBScuOHHBiQtOXHDighMXnLjgxAUnLjhxwYkLTlxwv7hxYPUKtyVuHriaC9jll5sHrubelhOu40xc7Np4ADebcazJEUnVAAAAAElFTkSuQmCC" InformativeScreenshot="a5e0186bd042b632dcf4069b286eb36f.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
@@ -1327,7 +1327,7 @@
                                     </Sequence>
                                   </uix:NCheckState.IfExists>
                                   <uix:NCheckState.IfNotExists>
-                                    <Sequence DisplayName="타겟이 나타나지 않음" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                    <Sequence DisplayName="타겟이 나타나지 않음" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_60">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

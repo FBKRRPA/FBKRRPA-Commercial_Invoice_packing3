@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -9,11 +9,12 @@
     <x:Property Name="io_Status" Type="InOutArgument(x:String)" />
     <x:Property Name="io_isFileDownloaded" Type="InOutArgument(x:Boolean)" />
     <x:Property Name="io_isWindowDown" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="io_isMacroOpen" Type="InOutArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1430,11191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1243,1778</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -128,7 +129,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1294,1826" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="630,1713" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_InvoiceNum" />
       <Variable x:TypeArguments="x:Decimal" Name="NotOnUsCheck" />
@@ -148,10 +149,10 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="522,124" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="522,1471" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="568,124" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="568,1350" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="시도" sap:VirtualizedContainerService.HintSize="465,1045" sap2010:WorkflowViewState.IdRef="Sequence_30">
+        <Sequence DisplayName="시도" sap:VirtualizedContainerService.HintSize="530,1090" sap2010:WorkflowViewState.IdRef="Sequence_30">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="in_PackingType" />
             <Variable x:TypeArguments="x:String" Name="in_EtdDate" />
@@ -162,7 +163,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign DisplayName="Multiple Assign - Transaction item content" sap:VirtualizedContainerService.HintSize="431,257" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+          <ui:MultipleAssign DisplayName="Multiple Assign - Transaction item content" sap:VirtualizedContainerService.HintSize="468,257" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -214,7 +215,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <ui:MultipleAssign DisplayName="Multiple Assign - Transaction item content" sap:VirtualizedContainerService.HintSize="431,257" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+          <ui:MultipleAssign DisplayName="Multiple Assign - Transaction item content" sap:VirtualizedContainerService.HintSize="468,257" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
@@ -266,7 +267,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <If Condition="[in_remark.Contains(&quot;다시받기&quot;)]" sap:VirtualizedContainerService.HintSize="431,423" sap2010:WorkflowViewState.IdRef="If_9">
+          <If Condition="[in_remark.Contains(&quot;다시받기&quot;)]" sap:VirtualizedContainerService.HintSize="468,488" sap2010:WorkflowViewState.IdRef="If_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -274,7 +275,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_39">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_39">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -283,13 +284,13 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="Sequence_40">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="434,224" sap2010:WorkflowViewState.IdRef="Sequence_40">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ORACLE_ERP\Distribute_Process.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ORACLE_ERP\Distribute_Process.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ORACLE_ERP\Distribute_Process.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="372,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ORACLE_ERP\Distribute_Process.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_ExcelFIleName">[in_ExcelFileName]</InArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionNumber">[TransactionNumber]</OutArgument>
@@ -302,428 +303,16 @@
                     <InArgument x:TypeArguments="x:String" x:Key="in_Remark">[in_Remark]</InArgument>
                     <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
                     <InArgument x:TypeArguments="x:Boolean" x:Key="io_isWindowDown">[io_isWindowDown]</InArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="io_isMacroOpen">[io_isMacroOpen]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
             </If.Else>
           </If>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="431,48" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1158,9133" sap2010:WorkflowViewState.IdRef="Sequence_41">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Oracle Applications - ESTec ERP System" sap:VirtualizedContainerService.HintSize="1124,9073" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V2">
-                  <uix:NApplicationCard.Body>
-                    <ActivityAction x:TypeArguments="x:Object">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="1090,8759" sap2010:WorkflowViewState.IdRef="Sequence_38">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="ERP Insert Sequence" sap:VirtualizedContainerService.HintSize="1056,8697" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                          <Sequence.Variables>
-                            <Variable x:TypeArguments="ui:Window" Name="win_Invoice" />
-                          </Sequence.Variables>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[io_isWindowDown = False]" sap:VirtualizedContainerService.HintSize="1022,924" sap2010:WorkflowViewState.IdRef="If_7">
-                            <If.Then>
-                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,665" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <uix:NClick ClickType="Down" DisplayName="Click 'Invoices (ESTK'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                  <uix:NClick.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="188, 91, 1119, 16" DesignTimeScaleFactor="1" FriendlyName="'panel'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java cls='CaptionComp' role='panel' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java cls='CaptionComp' role='panel' /&gt;" Guid="32ab2b3e-8080-4937-bf95-1aa043517dd1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABGMAAAAUCAYAAAApxfBuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG7SURBVHhe7d3haVtBEIXR1046SBFqLx2kh5Qn+wYGwvoK8fzCIsExHAbmA/n/sLKPHz9vdwAAAAD2cIwBAAAA2MgxBgAAAGAjxxgAAACAjRxjAAAAADY6dYz59fvPX62Frut6a6Hrut5a6Lqutxa6ruutxbv308eYzOM4vrTQ9UxdX1voeqaury10PVPX1xa6nqnra4t376e/pvTog4aut/3Q9bYfut72Q9fbfuh62w9db/uh620/dL3tx5V+3D9/WgAAAADg/7t0jMmzm3l60+i6rrcWuq7rrYWu63proeu63lq8el9dPsZkPnp6o+uZur620PVMXV9b6Hqmrq8tdD1T19cWr95Xl7+m9OwX6XrbD11v+6HrbT90ve2Hrrf90PW2H7re9kPX23486//yN2MAAAAANjr9r63n6U2j67reWui6rrcWuq7rrYWu63pr8e799DEm89HTG13P1PW1ha5n6vraQtczdX1toeuZur62ePd+6hgTjz5o6HrbD11v+6HrbT90ve2Hrrf90PW2H7re9kPX235c6aePMQAAAAB8n2MMAAAAwEaOMQAAAAAbOcYAAAAAbHO7fwD1S7cL/6NmpQAAAABJRU5ErkJggg==" InformativeScreenshot="d034955b9cad21a575cb61ec875de35e.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="12, 91, 176, 16" ElementType="Text" FriendlyName="'Invoices (ESTK'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Invoices (ESTK Operating Unit)' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Invoices (ESTK Operating Unit)' role='label' check:text='Invoices (ESTK Operating Unit)' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALQAAAAUCAYAAAAk0RfcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAINSURBVGhD7ZJRTsNADES5DjfgENz/OqD9sPQYzXgTmpSyWktPsee5TRF+e//4/NpsVmEf9GYp9kFvlmIf9GYp9kFvluLHQY/ifCV3fncH35tK91mdY5XnfsoUlvPP5I7f4L7TZY60l/KlD1rfqbPivMtSrpnODt3R+Rnwneyvwn2nyxzcY+/mwdMO+i/Qv0dnxXmXpZwZ+0TaSfld3P0+9/0um6Gf0XkQD1or7enMSjs1VzF/xBHnXUZmnrjdyuo5I+0x1+Kees35rL4qZfVUN6ryo75wjpmW22M5X7QHfdbVU/Ouv8opzqVyO8wcbqdK80TaZc7+rBvlnM5H+jNOcY4Z+86xT9lLHDRRx5n9DLfrskSVcwPnKqvnjLTHnP0jTqE/0p9xinPM2HeOfcp+ddCc66l959grrpJnrjjvshnpMy5nxj6Rdpizd07L7TFjMZ/1Z5ziHDP2nWOfspc8aJc7ul3nXEacd1nKNdNZSZ45+5kj6rr5SH/GKc4xY9859in79UG7rJtTf5VzqNdZcd5lKT+aEfVnZvZn3ajkXJ9mFh1xjhn7zrF38+DSg66sSnOdq5g/4hTdSdXt0BHnXNblBatzozqvOefKRjlfcz21dzPp3EBLXZrZz9zgx0GviPuj/xOv+vv1d+l8N+l9yx/0fyf9414BlvN/wT7ozVLsg94sxT7ozUJ8fn0D1ItIphIlcYYAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NClick.Target>
-                                </uix:NClick>
-                                <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="Delay_21" />
-                                <uix:NClick ClickType="Up" DisplayName="Click '5 View'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                  <uix:NClick.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="661, 317, 217, 23" DesignTimeScaleFactor="1" ElementType="TabPage" FriendlyName="'5 View'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='5 View Prepayment Applications' role='page tab' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='5 View Prepayment Applications' role='page tab' check:text='5 View Prepayment Applications' /&gt;" Guid="a027390b-ae9a-4442-81da-cd5d0cc4020c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAN0AAAAbCAYAAAD4dYqzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK7SURBVHhe7ZeLjdtAEEPVaapIJYd0kB7ShHtysAEIEAT3K63snCngQTvk7EiWjrDv+PHz6xlCuI+ELoSb6Ybu1+8/IYQJXI6Yo9akg0IIc7hcFRK6EDbhclX4Fzpt4I0hhHU4VyChC2EjnCuQ0IWwEc4VSOhC2AjnCiR0IWyEcwWWQncch6XW29Jr/pXg/hTXG+rseGY8c9c7eeW75lyB5dA53VHrhX7HA+ndw6cz+hx2PC+eeeX8XXNn4VyBl4fuDt7hHt6ZkeeAnquf2a538C7vlnMFtoeuoP1cO49Rb6ae0bEuZ9UZ6PC0h3311G/VvAe61gx76qvHvtMc8LWPdbDi6xo1w17LV4099Xue+q5HfYZzBS77n871AfW5rq2d1prj6hm9rEfmzewZ2b/iaa2eais+o77uPev31k6b8Vf3Oa3nK5wrcNk3XevC6nFdWzutNcfVrDu0h+sRbXQP09o/6mmtnmorPqP+2dk1v7evx+rcs34LzhVYCp2jdzPwtU8/kMP1186OlgdcT9Ec7HO/03gfaPWOeFqXtcP1Os35DOYx7HGvajN+b59SehT2emun9XzUDHsK5wq8XejYc+gcPTtm5vY0prdnZCbqmj5Sq6c4f3R/zYO+Mrvm9/YxV86d8R0tn3MFbvl5CXr7Rueq5nqYnl9YuXZZa4/66tX6a/pIrZ5qKz6oedDLWXu4HvF7a6epX+qa39qn2llf4VyB5W+6ciHG9SiuTzWe6frR06qVnl9oXYtRT3vYd16tp6eN1Ix6XDvN9YzofAa1vpava9QMe+qjVr+mM+px7TTe6/oZzhW47OflJ9J74KNcNecV9O79f/5sV8C5Ass/LxXX9905+7m/w7Pr3f+n/m0AzhXIN10IG+FcgYQuhI1wrkBCF8JGOFfgeObIkePW43g8Hs8Qwl08nn8Bgjm6T8c5eCIAAAAASUVORK5CYII=" InformativeScreenshot="4d2c707c36e3961c27824a7e9d8ae837.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="501, 317, 163, 23" ElementType="TabPage" FriendlyName="'4 Scheduled Payments'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='4 Scheduled Payments' role='page tab' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='4 Scheduled Payments' role='page tab' check:text='4 Scheduled Payments' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKcAAAAbCAYAAAAZHp/iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVHhe7ZeLacRADETdaapIJSEdpIc04Z4u7IFgGEb78d76ljAHDyw9aW3nhpAcH59fD2N2xOE029IM5/fPrzFLUHlDjmyIDzJmFVn+HE7zdrL8PcPJA9Ez5i5U/hxOswUqfw6n2QKVP4fTbIHKn8NptkDlbzqcx3E8US6IGUTNZYzO9zBy5uz9a/vFKdTsf0blb3k4MzfyBaz4su68f20/cyveeTUzz6zyNxXOeJjVP/yZl8648/61/cyteOfVzDyzyt/bwsmUOYQdz6Bn1/JRo4tr1WNfagQd+6h5Jsgc9+O8gF1W4070uUbQsWeHvtXDvkLl73I4+SHQMa0HVH3sqV326Lindq/uj8xGrXaCzNXO5B77Xsc1O+6N+NYso/J3SziRMsvzrX3lsXennz2LKU6hZhGc4flexzU77o14NVtD5e9SOPnGow9SGHkR5XlfoWZVb8SXa4WarfWCmkPiPgg6nu1xXJdrhZpVPfaxH6BjVP4uh1ORzbb62Uyg/Or9zKtZpHUW0zqv0HNm1Fm/p2bHKD+7H6j8Tf1DFNRumrnWS630pb7qeZZ77EutdoKaC3rOjDrr99TsuDfiW7OMyt/ycBaKZ1oz7LBWPdzN5tHxTM3XZtmxj5pngppDes7s6fXUCDusVQ/rOCPAOUbl7yXhNHvQCsDOqPy97G9ONWfu4T98Byp//s1ptkDlz+E0W6Dy53CaLVD5Ox7++LPp5zjP82HMfpyPPzQA84GPEQBnAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NClick.Target>
-                                </uix:NClick>
-                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_5">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Boolean">[io_isWindowDown]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </Sequence>
-                            </If.Then>
-                            <If.Else>
-                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_32">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Sequence>
-                            </If.Else>
-                          </If>
-                          <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1022,122" sap2010:WorkflowViewState.IdRef="Delay_22" />
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'Find Invoices'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1022,250" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="[str_InvoiceNum]" Version="V3">
-                            <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable DesignTimeRectangle="451, 277, 192, 23" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'%TRDS%'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Number' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Invoice: Number' role='text' /&gt;" Guid="648776ac-e028-4151-a934-a8a2f9cae08a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMQAAAAbCAYAAAAjziCRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF+SURBVHhe7ZfBbcNADATVTjpIEe4hVaSStKWeHBwCGiuapGkn+YgzwALSkvpxHto+Pr+uhJCfIAQhEoQgRHInBMAk/P0fhACYiDqAEDAedQAhYDzqAELAeNSBUoht227poPtRHu0o0XwlItpb8VQzmIs6kAqhhxMdUdQp2bzbR3vdbuF7ffezRdTBDNSBl4Tw7xHZTrf/z71qBvNQB54WQp8rsr1u/9s9j+5lzzATdeDpf4ju8fjvjG7f3VtYF82UaKfahxmoA6UQHn9I1TFlc+ujKFG3yHrD5tWOoTvdb+B8qAMtIfyx2HN1RNms23f3Mqo9P7Pn6hs4L+rAQyGi47F3P1OyWbf/6z3D9/ruZzADdaD1D6FoF82NbNbto71ut+juahfN4fyoA0/9Qxh2ONXxZPNub+8+EdHeSpdXvoHzoA68JATAmVAHEALGow4gBIxHHUAIGI86gBAwHnXgIMQKwCT8/d8JQcjkHIR4e78QMjo3IazY952Qodmv3wiWjEE4gmbUAAAAAElFTkSuQmCC" InformativeScreenshot="efa83b049b4fe4c570d29fa4bd6f01d3.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target DesignTimeRectangle="335, 138, 75, 16" ElementType="Text" FriendlyName="'Find Invoices'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Find Invoices' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Find Invoices' role='label' check:text='Find Invoices' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAUCAYAAADMfWCyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADNSURBVFhH7ZRBCsMwDAT7/3t/0D/kE/5Tig+GjSKrsjZtCexhwNJKOgwhj+dr20UNySOQPALJI5A8goO81prLyHA2S7RXvZnhm7cHJ3lYI5J3Ji2vyr/k/YLSl9ffCM5l8gFm0U5Ur+x4c0z28Z+HmfdeySzszexOdm4l65S/vEpmYW9md+wckr3hcQt5WGd3ojmkZ5ZZjv2O5AWZxc7eRp7Xi+rZ+6qsc7m8USOYIZjZOW9v1hvYvq29OSY7yBNrSB6B5BFIHoHkldn2NymVavu1yBZ4AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NTypeInto.Target>
-                          </uix:NTypeInto>
-                          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="1022,122" sap2010:WorkflowViewState.IdRef="Delay_23" />
-                          <uix:NClick ClickType="Single" DisplayName="Click 'Find Invoices'" sap:VirtualizedContainerService.HintSize="1022,189" sap2010:WorkflowViewState.IdRef="NClick_18" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                            <uix:NClick.Target>
-                              <uix:TargetAnchorable DesignTimeRectangle="335, 138, 75, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Find Invoices'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Find Invoices' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Find Invoices' role='label' check:text='Find Invoices' /&gt;" Guid="3beb1fc7-52ca-431c-aac8-00a6b70f5855" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAUCAYAAADMfWCyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADNSURBVFhH7ZRBCsMwDAT7/3t/0D/kE/5Tig+GjSKrsjZtCexhwNJKOgwhj+dr20UNySOQPALJI5A8goO81prLyHA2S7RXvZnhm7cHJ3lYI5J3Ji2vyr/k/YLSl9ffCM5l8gFm0U5Ur+x4c0z28Z+HmfdeySzszexOdm4l65S/vEpmYW9md+wckr3hcQt5WGd3ojmkZ5ZZjv2O5AWZxc7eRp7Xi+rZ+6qsc7m8USOYIZjZOW9v1hvYvq29OSY7yBNrSB6B5BFIHoHkldn2NymVavu1yBZ4AAAAAElFTkSuQmCC" InformativeScreenshot="ee4fd79eb26eb47fb21750130986cae4.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target DesignTimeRectangle="410, 138, 608, 16" FriendlyName="'panel'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java cls='CaptionComp' role='panel' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java cls='CaptionComp' role='panel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAmQAAAAUCAYAAAAjrCFUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACESURBVHhe7dkxEcAwDARB8+/DIBxMQpwcAq5zzRZbicCNfj3vPgAAdAQZAEBMkAEAxAQZAEBMkAEAxAQZAEBMkAEAxAQZAEBMkAEAxNbMXA8AAPzDhwwAICbIAABiJksAgJggAwCImSwBAGKCDAAgJsgAAGKCDAAgJsgAAGKCDAAgtc8H0LtMwdq7C6QAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NClick.Target>
-                          </uix:NClick>
-                          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="1022,122" sap2010:WorkflowViewState.IdRef="Delay_24" />
-                          <uix:NClick ClickType="Single" DisplayName="Click 'Find alt i'" sap:VirtualizedContainerService.HintSize="1022,189" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                            <uix:NClick.Target>
-                              <uix:TargetAnchorable DesignTimeRectangle="941, 588, 115, 29" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Find alt i'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Find alt i' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='Find alt i' role='push button' check:text='Find alt i' /&gt;" Guid="fbf78ca6-a523-4900-8c1d-a7e87bcb0a35" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAhCAYAAADj7jRgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEuSURBVGhD7dnRCcMwDEXRbNopOknoBt2hS2SnFJk+ITuKiclHLfEMF+zIKYVDv7o8nuvOckbcxFW4y7KwIFm3sxQXL3DFWFeQK1ysbdvY5GH1gA+43gexeZN1BkzcBMnygImboNf7Q9zMecDETRJxE5cGV76rF2bt/ZHuvv/P4Bge13suETcx7t2I++d6AHYm+zZ7t72Dc3snSmlwvTCz97D3nrVzOXvvRCkNrvdcsjPv3sg8WsQdmEeLuAPzaBG3M5ez906UiNs8kzPy5pFKgcv80uNG/uXdqYUtZ93wlxs6GMKznHVD3NDBEJ7lrBvihg1+sFRT3RA3bPCDpZrqhrghgx0cbQdc+Uff+xA2V9YN+7YKt3eRzdUVL8Uth98LbP6s21kVLssVcdO27l+dNxs0ICtz6QAAAABJRU5ErkJggg==" InformativeScreenshot="c953c86575a2c2bf5dce86047deadc4e.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target DesignTimeRectangle="816, 588, 115, 29" ElementType="Button" FriendlyName="'New alt N'" FullSelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='New alt N' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Find Invoices' role='internal frame' /&gt;&lt;java name='New alt N' role='push button' check:text='New alt N' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAhCAYAAADj7jRgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEOSURBVGhD7dXtCcMwDEXRbtopOknoBt2hS3inFJMKhKLYSn5JLy9waP0FMRfax/O1rISJcYExLrBQXD41HtttGFee1hol9/58d/0O4zJqPTawG5dha2JcYNO4DFsX4wJjXGDDuFXDHr175TtdARvXe//Kd7qCcYFB/yzbO3hjza6dGWcE/58b+S5G67NxRoz7PzNbn40zgo+rx3pe7mjJunfOfsq+rG4RV+b0fOR+sufo0zuTCeOaPbM5b09Wt4nrzeu7njmjx5lBxqXNMG5XMbC9g1bxPldBxqUN4wKbxu0YuKZQ3L7JO0y5heJ2DFxPOG7XNzNyDdJL9xvGFRKZcrPdQnGpJsYFxriwlvUHcAxOihMVmOcAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NClick.Target>
-                          </uix:NClick>
-                          <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1022,122" sap2010:WorkflowViewState.IdRef="Delay_25" />
-                          <uix:NGetAttribute Attribute="editable" ContinueOnError="True" DisplayName="Get Attribute '0.00'" sap:VirtualizedContainerService.HintSize="1022,239" sap2010:WorkflowViewState.IdRef="NGetAttribute_2" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                            <uix:NGetAttribute.Result>
-                              <OutArgument x:TypeArguments="x:Boolean">[check_Element]</OutArgument>
-                            </uix:NGetAttribute.Result>
-                            <uix:NGetAttribute.Target>
-                              <uix:TargetAnchorable DesignTimeRectangle="966, 492, 90, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'0.00'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Invoice Amount' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Invoice Amount' role='text' check:text='0.00' /&gt;" Guid="1612997d-ec0c-485d-982c-460284d30be0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAAAcCAYAAADoQggJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADZSURBVGhD7dHBDcJADETR7ZQqqCSiA3qgifQUvFKMrKyT4bCKLx/pXTLry6c9nsvW8bvn571/4XEvwhchfJEh/Ov92dZ1xUS9qXf1zkP44xHmIHwRwhch/K61NsjeRermaie8OUY5+xapG7UT3qhIGXWjdsIbFSmjbtROeKMiZdSN2glvVKSMulE74Y2KlFE3aie8UZEy6kbthDcqktqzb2on/M6jRMctvo/fo393whchfBHCFyF8EcIXkeH9AebpTS/D+wPM539CGr7zB5gvdh7C4x6EL7FsXy3FSXpJZP0uAAAAAElFTkSuQmCC" InformativeScreenshot="5ff665b59e66f134796c6b45153b6f51.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target DesignTimeRectangle="966, 467, 90, 24" ElementType="Text" FriendlyName="'Invoice Amount'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java cls='FolderPrompt' idx='8' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Invoice Amount' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAAAcCAYAAADoQggJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEkSURBVGhD7ZBRDsMgDEO56U6xa/Sn1+qdOvGRKfNCCNUgq2SkJ+HYgHB5PPeTrIfFJ/Eufts2Mpm6zOK55q1u8cdxkAmw+CRYfBIsPolw8aWUj4MzWPFGZdU7Hiw+ib8qfgXyj+z/XCq+7hHxMItan/FyolvZiG8hOczre3RG615ee1rjrO4vFy97a4a+6JFzI1lvpkHfu28ki7OIf6viNb27LND33hvJ4iziTyle65Fzvaym+hZWVvDyet/T6OEs4t+6eGveopWXOfqetu4a9acVb816mdbemvV8pOXJHH1PW3d5ftXoLy1eZhr0ULeyEV/T8mWOfkRrtIe+aO2Fiye/hcUnweKTYPFJsPgkWHwSbvFkLmbxXGvWV/FkLSw+hf18AVX4Hp6pbXTKAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NGetAttribute.Target>
-                          </uix:NGetAttribute>
-                          <If Condition="[check_Element = True]" sap:VirtualizedContainerService.HintSize="1022,6331" sap2010:WorkflowViewState.IdRef="If_8">
-                            <If.Then>
-                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="988,5883" sap2010:WorkflowViewState.IdRef="Sequence_36">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_26" />
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'Invoice Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NTypeInto_14" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="[str_amountComp]" Version="V3">
-                                  <uix:NTypeInto.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="1029, 491, 90, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'64,787.90'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Invoice Amount' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Invoice Amount' role='text' /&gt;" Guid="e6deb205-7add-4c25-8302-0d6fefccb595" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAAAcCAYAAADoQggJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVGhD7ZRBrsIwDER7U07BSRA7ltyBS/REbIq8CBq54zgtVRwqIz3pd2YS4OmL6XK9LUK++ryK76/4pC8pPogUH8RK/P35Wpb3IzkQcSrM82yLZweT30nxQaT4IELET9O0wtuxvoA7TW2z5TzD29f67uL1B7AyzFnngefYHSxD9vSYef0Q4hm4a9lr9Hl9B8uQPT1mXn9K8fo99LOVtXQFtsHM68PEa9gGn7H3qN2JYI94vcA2mHn9kL/x+Kw7D7ZvzWo5o2w12LG9/D2ceN3rZw+2b81qeQt4lt2D2bDiGXiGYe1Y3pptAc+zuzAb8qfG66z9lrw1s3Iv8/ru4oXyARC2E1hvnbFy7BBrszVHWvsQ8b+gv8C/8nfiz0KKDyLFB5Hig3DFy4AdTPYjTqviyyA5HpFe/Y8vg+R40PNKfNKHFB/CbfkAmdQr9w0zNa8AAAAASUVORK5CYII=" InformativeScreenshot="bbb4057eefd12b2e24592cb519017b66.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="1029, 466, 90, 24" ElementType="Text" FriendlyName="'Invoice Amount'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java cls='FolderPrompt' idx='8' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Invoice Amount' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAAAcCAYAAADoQggJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEkSURBVGhD7ZBRDsMgDEO56U6xa/Sn1+qdOvGRKfNCCNUgq2SkJ+HYgHB5PPeTrIfFJ/Eufts2Mpm6zOK55q1u8cdxkAmw+CRYfBIsPolw8aWUj4MzWPFGZdU7Hiw+ib8qfgXyj+z/XCq+7hHxMItan/FyolvZiG8hOczre3RG615ee1rjrO4vFy97a4a+6JFzI1lvpkHfu28ki7OIf6viNb27LND33hvJ4iziTyle65Fzvaym+hZWVvDyet/T6OEs4t+6eGveopWXOfqetu4a9acVb816mdbemvV8pOXJHH1PW3d5ftXoLy1eZhr0ULeyEV/T8mWOfkRrtIe+aO2Fiye/hcUnweKTYPFJsPgkWHwSbvFkLmbxXGvWV/FkLSw+hf18AVX4Hp6pbXTKAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NTypeInto.Target>
-                                </uix:NTypeInto>
-                                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_27" />
-                                <uix:NClick ClickType="Single" DisplayName="Click 'Distributions alt D'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                  <uix:NClick.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="550, 939, 154, 29" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Distributions alt D'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Distributions alt D' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Distributions alt D' role='push button' check:text='Distributions alt D' /&gt;" Guid="82b1aa57-568d-40e8-907b-8663de273888" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ4AAAAhCAYAAAAoGRLbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG6SURBVHhe7ZrtbcMwDES9aaboJEE26A5dwjullVEKZ4b6sGTFknICHiLySDVA388st6/7k5B3Q/HIJezEW5aFkGrQqRBePFng4ak9OQLuxJOzrishxciJyfcinvUQISW4E5KP4pGmuGPJR/FIUx7fPxSPXIMlH8UjzaF45BKGE899J401o3ul4Fut3v1UxLFhxEv1jvxTU7OYH3nX4sy3ZmB48WL9FEf2Sv+GULs/G9OJp2dcjVh9qbGPPSvHDHOrp3f0LOapTOfWjM57ZGrxrPnYrJ4/mmOmezl3q1eb98rHiYekZlvlpXtWz8pHYGrxpEZ0Zt2t3pl56V6o52oEs16ZXjxNaNbaa5WX7sV6SCrvgeHF0z2sU/NHZ/VMbF/P59ytXm3eK8OJp7FmdJ0zH8vw7j4FyXAGMz0T6yM6w9rq4a413yNDiUfmYSjx3HcKYc2TPtHSbbW//AW9iUfmQPwS17baXygeaYT4Ja5ttb9QPNIAcUs88775C8UjDRC3xDPvm79QPHIy4pU4hryI534taj1CSC7olNw1O/Fig4TkkuOSF28r/hcIqQGdCrETj5B3QfHIBdyfv/1ugOcB8YYcAAAAAElFTkSuQmCC" InformativeScreenshot="647888bed54433049573b8115fb1f29e.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="871, 939, 139, 29" ElementType="Button" FriendlyName="'Match alt M'" FullSelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Match alt M' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Invoices (ESTK Operating Unit)' role='internal frame' /&gt;&lt;java name='Match alt M' role='push button' check:text='Match alt M' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAI8AAAAhCAYAAADgdfgNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFwSURBVHhe7drRacQwEIRhd5oqUsmRDtJDmnBPd8yDYLKe9fpEDJE0gg9srewX/yR5yPbx+Xia9XA81s3xWLdL8Xitt1QH0Wk8be37botpS3XRpPFgqZfaWrBUHyDjwVIvsjVhqU4cj5W+vn8OjcAhHodjigrI8dgljse6lfHMEs62bXK/qea97nrvf8GtgOMp3HV2RNwKTBtP9iHPZspdZ0fErYDjob04q/Z4v83iGZ6PjluBqX9txY+n9tUHzuZXzsYz6plRcSuwfDwKz7NrRc2rZ0bCrcD0fzC3a7XH95E6y9eKmlfPjIRbgeXjUR/3nbOsetfouBWYPp7qXs2yeTwb96r56LgVWD6edt9kc75m2bmzvVFxKzBlPHYPbgV+xQMzBMQ/GTLqOcvFTmDKeOzvxU7A8dglsRM4xAMOyJhqBGQ8+N8N9RJbk2oEZDzggAxUG00aDyAgR7Qm1UN0Go/ZGcdj3RyPdXM81unxfAFaKPQK5UFbUwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NClick.Target>
-                                </uix:NClick>
-                                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_28" />
-                                <uix:NClick ClickType="Single" DisplayName="Click 'New'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                  <uix:NClick.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="15, 63, 26, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'New'" FullSelectorArgument="&lt;java cls='ToolBar' idx='39' role='tool bar' /&gt;&lt;java name='New' role='push button' /&gt;" FuzzySelectorArgument="&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java name='New' role='push button' check:text='New' /&gt;" Guid="73fe74dc-e702-4dc3-bfae-a89e215ea9fa" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD/SURBVEhL7ZZBDoIwEEV7HdfdeAjOwY1cdO8dvAR3Qj7hk89kWqFW2DjkKZ2hfZ0SE0Pf9+MVEfAxDMPpBC95Bn9xM1JKbp40F0MI8Gvx6qSJmDKCXLWYC+TwZATSGOMmZznUcUmGMYQA99ViHpWKgD6Dsco0qsU1Mo2vOwZ7ZIFXivNY53tkxdjxJxmeY43SMM1DIG/XVIpiL1DjCWhYMcKuqewSY0wZ8psu9VrE63i6t+uSotjKtL6KIctRI+a71Rw3wmOeu1MWmaLzlaIY3yqzG1HW7gsyJSumsCRTmomPsud4lWLHXr4VzTo+ynXix/PlFn7N/If+du9Ophvf0Nas12HYiA8AAAAASUVORK5CYII=" InformativeScreenshot="1027d076525abafb47a388543f02851c.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="41, 63, 26, 22" ElementType="Button" FriendlyName="'Find...'" FullSelectorArgument="&lt;java cls='ToolBar' idx='39' role='tool bar' /&gt;&lt;java name='Find...' role='push button' /&gt;" FuzzySelectorArgument="&lt;java cls='ToolBar' role='tool bar' /&gt;&lt;java name='Find...' role='push button' check:text='Find...' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEjSURBVEhL7ZRLDgIhEES5jms3HsJzcKe+09wJu6hUILEVBh1dKMkLGX6PblpT+VJL27aVb/AX35GzlZRINL/KU3FKrD3Ic/aCSDlct8JDMSPNVUg5ex+sZB+I9s3yVKwoJVUGDGIn2jfLMNWRvLEe9bC4Ijn6V999KAYjOXsr5h8Vi8/pmRKDSI6GOYh4AV4Ca0byaTGQvBej4RtzlhujJ9glBjjQHTUiShEhK9zMUPIVjT1iQYxDKVakamZIhSI+QKxi6qX4Q4FU0ZrPR/vFbjGFlApKHUk95Yg+2i92i3Foi7bDpRiXtF7Eic4Au8UA0vMZv1kK9aZN6kV2hFgR90DYpAeJgVLO9FIyKwXL4h6JeqJ1PW8Rr/CD4tPlWj7PtdwA/juMGk0IA80AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NClick.Target>
-                                </uix:NClick>
-                                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_29" />
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '2,746.40'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NTypeInto_15" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="[str_Twodecimal]" Version="V3">
-                                  <uix:NTypeInto.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="193, 567, 96, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text Amount'" FullSelectorArgument="[string.Format(&quot;&lt;java name='Distributions (ESTK Operating Unit) -{0} , ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java idx='2' name='Amount' role='text' /&gt;&quot;, str_InvoiceNum)]" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Amount' role='text' /&gt;" Guid="75106514-b66d-4742-a68d-166b0084b673" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAcCAYAAACXkxr4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACjSURBVGhD7dWxDcIwEEBRNmUKJonoKNmBJTxRGqNDOsnIUdLA5Re/eN25uS/bl+tt6en+fKlYa+0jG3wFCTmgOuP+pyA6l0FgpiDxrvX1oQLjP5L7n4JsHdT/GATGIDAGgTEIjEFgDAJjEBiDwBgExiAwBoExCIxBYAwCYxAYg8AYBOYwSAxsHdTvxa53g+SA6kSM3RuSA6oz7n8KonMZBGXpb/uG84KvOIe2AAAAAElFTkSuQmCC" InformativeScreenshot="5cedeaf64c1c360835f8bbb101339067.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="193, 543, 96, 24" ElementType="Text" FriendlyName="'2,746.40'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Amount' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Amount' role='text' check:text='2,746.40' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAcCAYAAACXkxr4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFSSURBVGhD7ZXRDcIwEEO7KVOwRn8QG7ADS3Snonwcshxfkn7Q5tBVelLjsysu/mC53R97YV3X5CLKYz18C8nn2qcqJJmDLGQyqkKer/e+bVtyAuWu7b7t/qtCOJT8lixkMrKQyQhVyLIsFcpnKL/R8nq6mrfwMqjzPEwh/MM9rYeXMR1nyqs0D/OiX+VRy0JIw5nyjnLkm6iF/g9Ry7Xw/Kjj3POPcOSbqIUtRC3WQ2VY43eFzT3Yx+/8DdRCFqKW6uFlUGcPnz2NQQ/7+cxauELUQiOoHGu9s6chPO+dWQtViFpmBC9nusLLKQ2xuQLnKlPewxSiFmE8z0i2wD6VQ03NGfaoDGrhClGwB3MtnVE+05CWn1Ee0xCbhfxTV/BiUfmbQv6FLGQyspDJyEImo1uIGZLfU+66WYgZkvOwcmQhBTMk54H3XxWSXEsWMhWP/QPhu7AwjSXVzQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NTypeInto.Target>
-                                </uix:NTypeInto>
-                                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_30" />
-                                <ui:RepeatNumberOfTimesX DisplayName="Repeat Number Of Times" sap:VirtualizedContainerService.HintSize="954,450" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_2" NumberOfTimes="4" StartAt="1">
-                                  <ui:RepeatNumberOfTimesX.Body>
-                                    <ActivityAction x:TypeArguments="x:Int32">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItem" />
-                                      </ActivityAction.Argument>
-                                      <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,262" sap2010:WorkflowViewState.IdRef="Sequence_33">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="382,202" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(tab)][u(hk)]" Version="V3" />
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:RepeatNumberOfTimesX.Body>
-                                </ui:RepeatNumberOfTimesX>
-                                <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_31" />
-                                <uix:NClick ClickType="Single" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_22" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                  <uix:NClick.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="693, 568, 16, 23" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java cls='PushButton' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java cls='PushButton' role='push button' /&gt;" Guid="8e9eb7f4-e247-47b4-9094-939a26a99552" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACLSURBVEhL7ZCxDYAwDAS9DjUNQ7ADUzAJoqNkB5bIRDRGjvSRCQEcEYkmxUn2531FyDnHXxnGKUB6KcFJ2HR9NvpeIN4Xntct+WghvvNCAQ8iT/1TCumifyuMj96owipUwpbI8zQL/wmtVGEVlhJKCCEKFqR7EeoQcw6QByEChHq3ApkX6qUEhYUTH7WZMnqbtTy6AAAAAElFTkSuQmCC" InformativeScreenshot="dcda56f4b7ff1fb042fa4aae79a49639.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="594, 519, 115, 24" ElementType="Text" FriendlyName="'Account'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java cls='FolderPrompt' idx='8' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java cls='FolderPrompt' role='text' check:text='Account' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAcCAYAAABbCiATAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADjSURBVGhD7ZLLDcQgDETpNFVsG1zSFj1lxcGR5YUl/KQwjKUngcfh4Bd3fM6LYEK5wNxyvfcEgFhJuay1qyg3hEAWhXKBoVxgKBeYJrnOuWSfvItt5O74Q1bLlSWttizK7ZQbe5qReW5eny2pTHo7UCXXLscuUGe298YcnalyNS156f3eHJ1quRad6VlLS156vzdH57Hc3HKkX1peS657M3J0psotLbcnj/ee73dgmFw5a/Tc6FzuOpNzrpeaQeaxXLIelAsM5QJDucBQLjCUC8xfuWR9knJZOPUjl+BBubCc1xe4865DxOpjrQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NClick.Target>
-                                </uix:NClick>
-                                <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="954,122" sap2010:WorkflowViewState.IdRef="Delay_32" />
-                                <uix:NCheckState DisplayName="Check App State '법인'" sap:VirtualizedContainerService.HintSize="954,3347" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                  <uix:NCheckState.IfExists>
-                                    <Sequence DisplayName="타겟이 나타남" sap:VirtualizedContainerService.HintSize="450,3098" sap2010:WorkflowViewState.IdRef="Sequence_34">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'label'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_16" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="MG041" Version="V3">
-                                        <uix:NTypeInto.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="676, 482, 75, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text 비용/예산부서'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='비용/예산부서 REQUIRED List Values' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='비용/예산부서 REQUIRED List Values' role='text' /&gt;" Guid="f6e72013-a5ab-422e-991d-6e8723c5ce95" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAfCAYAAACmupBxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADFSURBVGhD7dTNCQIxEIbhtGMHFmEPVmElizeP9mATqchLZJQs+Zlo4Dvsgu/Cc9oMDC8k4XxZUna9PzYXY3wr99qrKp7Jy2+p3WmvqniH4wlflK3MGs/7iVrbqItn70563tAo3+RhPG8QH2U8+9x4IYRuEMSTEE9APAHxBMQTEE9APAHxBMQTEE9APAHxBMQTEE9APAHxBFPx4COegHiCn/HsgDf476xLGc+s8XI4jFm4YTyTD8BXtqri2dXFvO7Nw6wlvQC6FbVUWv4DZQAAAABJRU5ErkJggg==" InformativeScreenshot="65dc02a7dd096623a74b3df9e8ec9932.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="712, 460, 16, 17" ElementType="Text" FriendlyName="'label'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='    ' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='    ' role='label' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVDhPY5i6ZPv/M2fO/I8vnUwVPGog5XiEGQgCowZShkcNxK6IVDxqIOWYygZO/g8A8V8cQ8e8eGgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NTypeInto.Target>
-                                      </uix:NTypeInto>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_33" />
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'label'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_17" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="4519902" Version="V3">
-                                        <uix:NTypeInto.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="676, 509, 101, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text 계정과목'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='계정과목 REQUIRED List Values' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='계정과목 REQUIRED List Values' role='text' /&gt;" Guid="e6f503ac-e62b-4f9e-a6e5-9ee0d2e91fb2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGkAAAAfCAYAAADk+ePmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADTSURBVGhD7dXBDcIgGIZh1nEDh3AHp3CSxptHd3AJJvKC+ZvQ/BSqnqBf+jZ5ToUEeBMI19uUsvvzhS9ijDN/Zj0UkUxeCNrW59VDEel0vmAHfBOzRGr9xBjrFlUku3vT+4FB/Pu3Gak1EX35SPY1I4UQqonoh0gCiCSASAKIJIBIAogkgEgCiCSASAKIJIBIAogkgEgCiCSASAKIJOCvSBiLSAKIJOBnJBvQmog+7Px9JLNEyoEwngXajGTyAIzlmxSR7Mo7Cr/vvavepKPQ2e+UPnhtYFOv6WKzAAAAAElFTkSuQmCC" InformativeScreenshot="285a159592d592baf4e858536b748715.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="751, 487, 16, 17" ElementType="Text" FriendlyName="'label'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java idx='2' name='    ' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='    ' role='label' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA1SURBVDhPY5i6ZPv/M2fO/I8vnUwVPGog5XhwGwgCo2FIOR41kDJM9XRIdQNBeNRASvHk/wA/mBRVkXCa8wAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NTypeInto.Target>
-                                      </uix:NTypeInto>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_34" />
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '원가귀속부문'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_18" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="0000" Version="V3">
-                                        <uix:NTypeInto.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="676, 536, 62, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text 원가귀속부문'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속부문 REQUIRED List Values' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속부문 REQUIRED List Values' role='text' /&gt;" Guid="19144e08-23de-42c2-8db0-8808aca4c9b6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAfCAYAAABTRBvBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC1SURBVGhD7dTBCcIwGIZh13EDh3AHp3CS4s2jO7hEJvIS+cqXktgUQU/N/xaeUxPI/0JyuFynXNwez7CaEJJSCqkJcTydw6jnliVE7+fIPuddhdB9ya/70Mq7oCuxGaK3cUR1CH2EIAQhZoQwQhghjBBGCCOEEcIIYYQwQhghjBBGCCOEEcIIYYSwryG0oLdxJJqxDiFLiBIhCkXYDCFlQQT13E0IXY89qmf41eqN2KP/zz7lN+Jy7xX3qoCaAAAAAElFTkSuQmCC" InformativeScreenshot="978ffd755ec8ce4d86a97971cc9a1b61.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="587, 536, 84, 27" ElementType="Text" FriendlyName="'원가귀속부문'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속부문' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속부문' role='label' check:text='원가귀속부문' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAYAAABjyArgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFPSURBVGhD7ZVRCgIxEEO9qafwJB5Y6cdACJl2WjeLHxN42E4yiwRZH8/X+9P46ILNdMFmumAzXbCZLthMF2ymCzbTBZspF6zEPt4rqB0l9vGuuCKj/Ip4p1SwWuQ5nuPOQj8yPFNgDs+K8OMz48RXM0T5toIVnOF7BubwzLDHd6QitcMzRPm3viI4w/cMzOEZZ0M8n3lqhii/It657E9OPZzhDN8zMIfnjEpmMJPKn1B+RcwUGd5jOIPCOcIe3xWVzF1s/4KzL5/NA+XzbKWTHRTu7bIj3PupYBbmGOWrWZB52XyHHan9YOUPbvkFZ142H2Semq/EeUU1h1R2ygVXHqaY7Z142XxGZeckw3eFreCQ8oLMz+aDmZdR2bkqw2y9IlZSOzP+aaeSGazE+e13cLNHF2ymCzbTBZvpgs10wWa6YDNdsJku2EwXbOX9+QLsvfbj67JIuAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NTypeInto.Target>
-                                      </uix:NTypeInto>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_35" />
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '원가귀속고객'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_19" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="000" Version="V3">
-                                        <uix:NTypeInto.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="676, 563, 49, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text 원가귀속고객'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속고객 REQUIRED List Values' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속고객 REQUIRED List Values' role='text' /&gt;" Guid="dab86df8-6486-479f-a1ec-f1520e07c59c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADUAAAAfCAYAAABH0YUgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACYSURBVFhH7dOxDYAgFIRh13EDh3AHp3ASYmfpDi7BRDaYKx4Bgdhy5Ei+Ckj4k8e07S6Y47qHkEWB955eFjUvK6W0AWJUbZPF9+1FFGYyPCcN+0cYu2ZU7WLv0igsRfVKUSwUxUJRLBTFQlEsFMVCUSwUxUJRLH6jcKB2sVd4bxoFMcqCGCGoGQV2gE3akEVhBEdQ/Cl+LryJwqcmyD/RkQAAAABJRU5ErkJggg==" InformativeScreenshot="c88a1c1e1ef1dd97485ae13aa39bdc19.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="587, 563, 84, 27" ElementType="Text" FriendlyName="'원가귀속고객'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속고객' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='원가귀속고객' role='label' check:text='원가귀속고객' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAYAAABjyArgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFhSURBVGhD7ZVbagNRDEO706yiK8mCE+bDIIT8uJMq9MOGQ23JvgVRpj+P3+dr8bEBm9mAzWzAZjZgMxuwmQ3YzAZsZgM2Mw5YFfs4T1A3qtjHWTHZOQWLddUHo4DVIevYx8yFfuywpsA97BXhx8+MrtRNgH7WB7aAFbzDcwbuYc+wx/MJ1S16WR989RPBOzxn4B72qF3FeudVVDfoceHexZ/9k1OPM7zDcwbuYZ8x2emo3kAv64PxJ6Kq2OE7hnewUEfY41kx2UHUvtKUjjP2wfFfsHqk0gPls9bVnRssvEOUx1oUaozyPwqYC/cY5SstyLxM/wT1ptLu8JW/4MzL9IvMU3pXvM/wDs+oV6VuxgFnD3RUd3e8TK/objp/inrHFnCU8oLMz/SLysvgm5PCuw61f/SJ6ErdVPznmzuo33P8DV7O2IDNbMBmNmAzG7CZDdjMBmxmAzazAZvZgK08X2+h0d2DCsicmwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NTypeInto.Target>
-                                      </uix:NTypeInto>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_36" />
-                                      <uix:NClick ClickType="Single" DisplayName="Click 'OK ALT O'" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                        <uix:NClick.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="737, 651, 100, 28" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK ALT O'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' check:text='OK ALT O' /&gt;" Guid="7f52fa99-0df5-4518-bb26-67329c0d236a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAgCAYAAAD+Fz2gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE9SURBVGhD7ZrBbQQhDEWn01SRSlbpID2kielpEw7vy4u8ZC4DBoz0pI8NI+R3nePj8/FM4pKCgnNJ0HEcSUdeZm83NVzI1W8xdzkg1Fgx53kmHfj6/tHs5YFgQY73keRemL9cEFRIOUPBgXwQVEhBQ8GBfBBopJyx4EFOCDRS0FjwICcEGiloLHiQk9nllHdbvP6VWhSWEnRl+P/to7GMoNagbe9djsq2glrnI7GloNbZaGwpqK5FZltBdY7K1oK8fTSWEVTwhn1FiFeLwlKCCuXdFq9f11r10bwVRGNGSSuBBzkh0JhFUHlrC+/ODOBBTgg0ZhG0KniQE4IKKWkoOJAPggp/zfLzgnc5uR8cyAfBkpLGwfzlglCDpBTVDzt7ZYJHOWgPJ/dTz7wpCLiU9OFl9naTxCMFhebx/AWASOAFTf0ZhAAAAABJRU5ErkJggg==" InformativeScreenshot="e2431fd2870e93432cefb40120548ae3.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="857, 651, 100, 28" ElementType="Button" FriendlyName="'Cancel ALT C'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='Cancel ALT C' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='Cancel ALT C' role='push button' check:text='Cancel ALT C' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAgCAYAAAD+Fz2gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE4SURBVGhD7dlRqoMwEIXh7LSr6EqkO+geugn3ZJmHgZNktIg6OcUT+KB1olzy096HlsdzWoSXApFTIHJdIK281Z59pArka55nSeALG7S6QNGD5Fq2sANSIBK2sIVTIBKv96cK4xSISBRJgYgoEDmqQKWUSrRnlJF/D/YwQwJFB8AU6daB2D4tEQUKrrdsH9qatfNoz555tD8L9jCUgaI9eG3EPAv2MH/zFXfmAR+9/0rYw/zNVxzeh6+ja9Ec+fNaOMf9mbCHuc1XHDo6vxL2MOmBzN4Dtvdb8/baFfMs2MMMCWTsENDW3N/jzF+vXfN7Hc5+zaP9WbCHGRZIetjCDfkftCbafyfYwukTRARbOAUigR2QApHADkiBCGCDVhfIfjSKHiLnw7NfUwUSPgpEToHIKRC1afkCuMeyE9dwjVoAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NClick.Target>
-                                      </uix:NClick>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_37" />
-                                      <uix:NClick ClickType="Single" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NClick_24" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                        <uix:NClick.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="1120, 518, 16, 25" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java cls='IconButton' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java cls='IconButton' role='push button' /&gt;" Guid="1c6e4155-b31b-4e89-8ada-4e5216569f23" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABwSURBVEhLY4gvnfyfmpj6Bmpa+GCVIBczTF2y/f+ZM2fgAqQCZMNAGMVAGADxicEgvQQNRNdECI8aOGogLQ00ZmAAY3xsEB44A4nFowaOGjgkDITxicHohoEwioHUwAz4bCMHgw3EJkEupnJTZPJ/ADjbpoSyxKuiAAAAAElFTkSuQmCC" InformativeScreenshot="fecfb21e9600d834663ebbf0a675cdc6.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="767, 517, 52, 27" ElementType="Text" FriendlyName="'관리항목'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='관리항목' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='관리항목' role='label' check:text='관리항목' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAAfCAYAAACyLw6QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD1SURBVFhH7ZRtCsJgDIO9qafwJDvwxB8vZPHpWhGRjgYeXNtECH7c7o9tvzJTsDtTsDtTsDtTsDuHgpHco3OFKKOiG+0yeab0CWpQn9fs0vvy+C6DMrRT6P51QcI9NEcij+7WM0F3LOhGnfU5wj0++3690s13mTyTFtTnNS/pXvGbz7TLZqLiKX2CCt1cdM922UxUPIeCmZbHMzoTkUdFN5+r0lzpT0bxN/CZqHh+xV8LnulT/0uUeSsYGSMqfvLQTsnuBGW+Lvgikt7VH+2U7E5QBr+imShzRpQ5E/kzKPfxb7AbU7A7U7A7U7A7U7A7Fy+47U/N108gfEDxPwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NClick.Target>
-                                      </uix:NClick>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_38" />
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Find'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_20" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="INVNO관리[k(enter)]" Version="V3">
-                                        <uix:NTypeInto.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="280, 175, 222, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'%'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='관리항목' role='internal frame' /&gt;&lt;java name=' Find' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='관리항목' role='internal frame' /&gt;&lt;java name=' Find' role='text' /&gt;" Guid="90db75f2-9ee4-457a-9f40-e984752a95bb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOIAAAAcCAYAAAB8iGO+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADySURBVHhe7djRDYIwGIVR1nEDh3AHp3AS4wbu4BLshPlNMAgSrW2xD+ckNyHQ1y8BuuPpPJjZfydEswb2EuJufzCzDTbtLvYM8d1DM6uzeW+LEC/X2wDUE43F+r5fDxGoT4jQACFCA5JC7LruMaCsRYhx812I0wDnMYoT8mSHKELI93WIIaITIZSXFOKUCKGcn0IUIZSVHOL81VSUkC/5G3G0dg2k+zrEeWxChHJ+/lkTIkARQr6sEIEyFiGOF0KE7QgRGiBEaIAQoQEfQ4wDQD3R2GqIY4RmVn8R4WqIsfGAmdXdtLtFiGa2/YRo9vedhzuvedP1QgU+vAAAAABJRU5ErkJggg==" InformativeScreenshot="4f820e3b2cd1d235b706c61f7b6e26f8.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="256, 179, 24, 16" ElementType="Text" FriendlyName="'Find'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='관리항목' role='internal frame' /&gt;&lt;java name='Find' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='관리항목' role='internal frame' /&gt;&lt;java name='Find' role='label' check:text='Find' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABsSURBVEhLY4gvnfyfHljTwgdMj1pINTw4LMQFYHLIaonFMH04LUTmI2N8cvgwTB/JFpKLYWZS5EN0gKwOlzzRcYgsh41NrBzFPiRVbtRCDIwsh8wmVo5mFsL4yAAkhtVCWuJRC6mOB8jCyf8BB6eX+m0g54sAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NTypeInto.Target>
-                                      </uix:NTypeInto>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_39" />
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Invoice Number'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_21" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Text="[str_ap]" Version="V3">
-                                        <uix:NTypeInto.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="869, 544, 140, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'text Invoice'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='Invoice Number REQUIRED' role='text' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='Invoice Number REQUIRED' role='text' /&gt;" Guid="30165d14-8d03-47f4-b589-7b1ad88763a5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJAAAAAfCAYAAAAIoES1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC9SURBVHhe7daxDcJAEEVBt0MHFEEPVEEliIyQHmjCFZEYbXDIYB8Y/XSCiW43e9LecDydp+Zyu8Nf3gIq4zjCZm8B7fYH+GreS3kFtPYInz47WQRUd216XGGh/XvqdHUDWluEZlNAwzAsFqEIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICIbAoIegREREBEfgZUA2uLUG10A2rxwDcVTzeg0gagZ97LIiD4h4AInKcno1pnZgNrAdwAAAAASUVORK5CYII=" InformativeScreenshot="d994ab45a098523e3a012cf71746b824.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="767, 544, 97, 27" ElementType="Text" FriendlyName="'Invoice Number'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='Invoice Number' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='Invoice Number' role='label' check:text='Invoice Number' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGUAAAAfCAYAAAD+xQNoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFOSURBVGhD7ZFRagNRFEK7066iK8mCU+ZDMOJ9M23mFSkKh3j1Mfnw4/Pr8SxZdJRAOkogHSWQjhJIRwmkowTSUQLpKIF0lEBeRjnE9w52/sf07Sl/l13f/XejHHK5Znew67t/PspOIJdrdge7vjuO4jS91Vs1vcPN4u5Kz6DHr+au00ylGd4hX/XaHdKO3yBfjsKdZuz5xq/rVt5l7FcZ4O6Kdxn7sxta9dxpBnF/EDcK43qXAe6ueJexP7vZu4y9y9gzvx6Fb/yqd9nkHZPc2wPtcONXvcvYn93sXTbJvWXiR3H5hHsP8c29ZuzPbvYuY++Y+rdGcZnemk3eZexXGXAdxPdP++mGVj13mrFnbh8FGUs7vVncXemZqdecpT37sxuehY7fsLTjG7yMUjLoKIF0lEA6SiAdJZCOEkhHCaSjBNJRAukogXSUOB7Pb/nOvbEGgbkdAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NTypeInto.Target>
-                                      </uix:NTypeInto>
-                                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_40" />
-                                      <uix:NClick ClickType="Single" DisplayName="Click 'OK ALT O'" sap:VirtualizedContainerService.HintSize="416,182" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ce8c13da-4212-4e5b-9a3c-c65951b08ec8" Version="V3">
-                                        <uix:NClick.Target>
-                                          <uix:TargetAnchorable DesignTimeRectangle="886, 605, 59, 28" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK ALT O'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='OK ALT O' role='push button' check:text='OK ALT O' /&gt;" Guid="b0781238-9b99-496f-b6c5-a7e25ad6e5f6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD8AAAAgCAYAAACl36CRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVGhD7ZjRDYMwDESzaafoJKgbdIcuwU60/riTiUygEJraAelJFzsGPX+Sbvdh6pVLfo2UUhhmXvqQg4EoD5zoh5CjpcdxdM/j+aIXHRE0ELde4hm40ROBhaDiAvzoisBCr/KRxQU40hcBjUveGIwAHOn7a3H5jsbqb6ntoan8FrG18xGayZckdG8p18CNfOn+XlzIl+4ewYV8XquFG/k818CVvHU+QjN5wRLZImvV9tBUXpDvaKx+XivVv2FRHo1fLKAVcKQvAhpnycu7S1gztYEjfRHQOEv+H4AjfRFYCLwA+NEVgYVPU372WcPegR9dETRRFwA3eiLkYAFRlqC9mBEs5KK+7J3cpygPMBSBmZc+9EbH8sP0BvdT+dU0hBAlAAAAAElFTkSuQmCC" InformativeScreenshot="ca62a864ba424be1719c5c7b17e1f762.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target DesignTimeRectangle="965, 605, 59, 28" ElementType="Button" FriendlyName="'Cancel ALT C'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='Cancel ALT C' role='push button' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241113_01_004, ESTEC ELECTRONICS(JIAXING)CO., LTD.' role='internal frame' /&gt;&lt;java name='Invoice Distribution' role='internal frame' /&gt;&lt;java name='Cancel ALT C' role='push button' check:text='Cancel ALT C' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD8AAAAgCAYAAACl36CRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVGhD7ZfbDYMwFEPZtFN0EtQNukOXYCcqf1hygoEgiCCPKx0J4ps0B8JHh9d7nFuly7fKQr6Wir0cgTxrmqbiYalfzELeLVQyKHVUqpcHKPUkTch/vr9AmjQhD9wD6PKky5uJYBiGANdzF6n7UVeQJO8Wf9IDyCb/tLfsuF0efcpWFueu50ju+h3qCi6Rdz06dkfuUFeQ7dhfufmz84m6gmzHXufptRtzucL1YjTX/jXUFTz22Ctnc6KuYFceHN087rfyeCxH7lBXkCQP8APKVs57zXi9Nsa5RLO93PU71BUky5eOepKkb36NuPfJqCfpb57UKq+OSpcnNcqrX8xCHn/63SKloV5rBPKt0eVbpWH5cf4DzohY5XkQQf8AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NClick.Target>
-                                      </uix:NClick>
-                                    </Sequence>
-                                  </uix:NCheckState.IfExists>
-                                  <uix:NCheckState.IfNotExists>
-                                    <Sequence DisplayName="타겟이 나타나지 않음" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                    </Sequence>
-                                  </uix:NCheckState.IfNotExists>
-                                  <uix:NCheckState.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="576, 415, 768, 284" DesignTimeScaleFactor="1" FriendlyName="'ESTK_COA'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' check:text='ESTK_COA' /&gt;" Guid="0d286288-1692-4a68-8038-03871028ef2a" ImageBase64="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" InformativeScreenshot="3bf27689b92a2ba2aad6829e0dd3987a.png" ScopeSelectorArgument="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                          <uix:Target DesignTimeRectangle="587, 455, 84, 27" ElementType="Text" FriendlyName="'법인'" FullSelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='법인' role='label' /&gt;" FuzzySelectorArgument="&lt;java name='Distributions (ESTK Operating Unit) - TRDS_241116_01_001, ESTEC VINA CO.,LTD' role='internal frame' /&gt;&lt;java name='ESTK_COA' role='internal frame' /&gt;&lt;java name='법인' role='label' check:text='법인' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAYAAABjyArgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADBSURBVGhD7ZWxDcQwDAN/05/iJ8nACVQ8IBB0lCKsfAKuIBU3B8P5fH/HCTkQHAbBYRAcBsFhEBwGwWEQHAbBYbYUXDN1mv9dH7fXDsGLbsqu01xsK/jJ6JmeXae54AYvuim7TnOB4EU3ZddpLrYUXOi4vev6uL122wqecLIm3BkEvwiCG05GZ9o73Bne4JtxZ7Sb4AYvcHvXTWz9Bt+N+76YRr/nJxcGwWEQHAbBYRAcBsFhEBwGwWEQHAbBUY7zAvW6FBm+AOmaAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NCheckState.Target>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </uix:NCheckState>
-                                <Assign sap:VirtualizedContainerService.HintSize="954,105" sap2010:WorkflowViewState.IdRef="Assign_6">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Boolean">[io_isFileDownloaded]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </Sequence>
-                            </If.Then>
-                            <If.Else>
-                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,285" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,120" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[str_InvoiceNum+&quot; 해당 건 편집 불가능 다음 건 진행&quot;]" />
-                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_7">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Boolean">[io_isFileDownloaded]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </Sequence>
-                            </If.Else>
-                          </If>
-                        </Sequence>
-                      </Sequence>
-                    </ActivityAction>
-                  </uix:NApplicationCard.Body>
-                  <uix:NApplicationCard.TargetApp>
-                    <uix:TargetApp Area="0, 0, 1920, 1080" Arguments="-D__jvm_launched=14705237508 &quot;&quot;-Xbootclasspath/a:C:\\PROGRA~2\\Java\\jre6\\lib\\deploy.jar;C:\\PROGRA~2\\Java\\jre6\\lib\\javaws.jar;C:\\PROGRA~2\\Java\\jre6\\lib\\plugin.jar&quot;&quot; &quot;&quot;-Djava.class.path=C:\\PROGRA~2\\Java\\jre6\\classes&quot;&quot; -Dsun.awt.warmup=true &quot;&quot;-Dsun.plugin2.jvm.args=-D__jvm_launched=14705237508 \&quot;&quot;-Xbootclasspath/a:C:\\\\PROGRA~2\\\\Java\\\\jre6\\\\lib\\\\deploy.jar;C:\\\\PROGRA~2\\\\Java\\\\jre6\\\\lib\\\\javaws.jar;C:\\\\PROGRA~2\\\\Java\\\\jre6\\\\lib\\\\plugin.jar\&quot;&quot; \&quot;&quot;-Djava.class.path=C:\\\\PROGRA~2\\\\Java\\\\jre6\\\\classes\&quot;&quot; -Dsun.awt.warmup=true --- --&quot;&quot; sun.plugin2.main.client.PluginMain write_pipe_name=jpi2_pid8868_pipe3,read_pipe_name=jpi2_pid8868_pipe2" FilePath="C:\Program Files (x86)\Java\jre6\bin\java.exe" IconBase64="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" InformativeScreenshot="c4277781758198a8072ae8b9b043846d.png" Selector="&lt;wnd app='java*.exe' cls='SunAwtFrame' title='Oracle Applications - ESTec ERP System' /&gt;" />
-                  </uix:NApplicationCard.TargetApp>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </uix:NApplicationCard>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="488,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="534,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -734,14 +323,14 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="465,232" sap2010:WorkflowViewState.IdRef="Sequence_28">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,260" sap2010:WorkflowViewState.IdRef="Sequence_28">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message Get transaction item faulted" sap:VirtualizedContainerService.HintSize="431,124" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;Could not retrieve transaction item. Exception message: &quot;+exception.Message]" />
-              <Rethrow DisplayName="Rethrow Get transaction item faulted" sap:VirtualizedContainerService.HintSize="431,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+              <ui:LogMessage DisplayName="Log Message Get transaction item faulted" sap:VirtualizedContainerService.HintSize="354,124" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;Could not retrieve transaction item. Exception message: &quot;+exception.Message]" />
+              <Rethrow DisplayName="Rethrow Get transaction item faulted" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
             </Sequence>
           </ActivityAction>
         </Catch>
@@ -750,70 +339,6 @@
         <Sequence DisplayName="마지막" sap2010:WorkflowViewState.IdRef="Sequence_42" />
       </TryCatch.Finally>
     </TryCatch>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="522,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="518,753" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="The sum of all 3 fileds must be less than the threshold" DisplayName="Input data validation" sap:VirtualizedContainerService.HintSize="484,693" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Decimal" Name="TransactionSum" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign TransactionSum" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Decimal">[TransactionSum]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Decimal">[CashIn +OnUsCheck+NotOnUsCheck]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <If Condition="[TransactionSum&gt;CDec(in_Config(&quot;ManualTransactionThreshold&quot;))]" DisplayName="If transaction sum exceeds threshold" sap:VirtualizedContainerService.HintSize="450,465" sap2010:WorkflowViewState.IdRef="If_1">
-              <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Throw sap2010:Annotation.AnnotationText="The sum of transaction items exceeds maximum allowed value" DisplayName="Throw BRE - exceeds threshold" Exception="[new BusinessRuleException(String.Format(&quot;The sum of transaction items, {0}, exceeds the maximum allowed value of {1}&quot;,TransactionSum,in_Config(&quot;ManualTransactionThreshold&quot;)))]" sap:VirtualizedContainerService.HintSize="382,155" sap2010:WorkflowViewState.IdRef="Throw_1">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Throw>
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Sequence>
-              </If.Else>
-            </If>
-          </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="522,79" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="568,79" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>
